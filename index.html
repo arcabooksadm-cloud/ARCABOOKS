@@ -841,7 +841,7 @@
             margin-top: 0px;
             object-fit: contain;
             object-position: left center;
-            
+
         }
 
         #arcabooksPage .arcabooks-nav-links {
@@ -1417,6 +1417,96 @@
             color: #fff
         }
 
+        #arcabooksPage .arcabooks-end-download {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        #arcabooksPage .arcabooks-store-button {
+            min-width: 150px;
+            padding: 11px 18px 12px;
+            border: 1px solid rgba(17, 17, 17, .14);
+            border-radius: 13px;
+            background: #fff;
+            color: #111;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: left;
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                border-color .25s ease;
+        }
+
+        #arcabooksPage .arcabooks-store-button:hover {
+            transform: translateY(-3px);
+            border-color: rgba(198, 12, 48, .45);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .10);
+        }
+
+        #arcabooksPage .arcabooks-store-small {
+            font-size: 9px;
+            line-height: 1.1;
+            color: #777;
+            margin-bottom: 4px;
+        }
+
+        #arcabooksPage .arcabooks-store-name {
+            font-size: 16px;
+            line-height: 1.1;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            color: #111;
+        }
+
+        #arcabooksPage .arcabooks-typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: .82em;
+            margin-left: 5px;
+            background: #c60c30;
+            vertical-align: -.04em;
+            animation: arcabooksTypewriterCursor .8s steps(1, end) infinite;
+        }
+
+        @keyframes arcabooksTypewriterCursor {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @media(max-width:1080px) {
+
+            #arcabooksPage .arcabooks-end-download {
+                gap: 9px;
+                margin-top: 24px;
+            }
+
+            #arcabooksPage .arcabooks-store-button {
+                min-width: 138px;
+                padding: 10px 14px 11px;
+            }
+
+            #arcabooksPage .arcabooks-store-name {
+                font-size: 14px;
+            }
+
+        }
+
         @media(max-width:1080px) {
             #arcabooksPage .arcabooks-page-nav {
                 height: 90px;
@@ -1728,7 +1818,9 @@
     <div id="arcabooksPage">
         <div class="arcabooks-page-nav" id="arcabooksPageNav">
             <a class="arcabooks-nav-brand" href="#arcabooksHero" aria-label="ArcaBooks início"><img
-                    class="arcabooks-nav-logo" src="https://github.com/user-attachments/assets/f8b292c3-3cb0-484a-a665-d30b3219f777" alt="ArcaBooks"></a>
+                    class="arcabooks-nav-logo"
+                    src="https://github.com/user-attachments/assets/f8b292c3-3cb0-484a-a665-d30b3219f777"
+                    alt="ArcaBooks"></a>
             <div class="arcabooks-nav-links"><a class="arcabooks-nav-link" href="#arcabooksSobre">O app</a><a
                     class="arcabooks-nav-link" href="#arcabooksFuncoes">Funções</a><a class="arcabooks-nav-link"
                     href="#arcabooksExperiencia">Experiência</a></div>
@@ -1785,7 +1877,8 @@
 
                 <div class="arcabooks-logo-wrapper" id="arcabooksLogo">
 
-                    <img src="https://github.com/user-attachments/assets/6491b76c-fcf4-4253-96aa-83b19933a842" alt="ArcaBooks" class="arcabooks-logo">
+                    <img src="https://github.com/user-attachments/assets/6491b76c-fcf4-4253-96aa-83b19933a842"
+                        alt="ArcaBooks" class="arcabooks-logo">
 
                 </div>
 
@@ -1839,7 +1932,8 @@
                             <div class="arcabooks-app">
 
                                 <div class="arcabooks-app-icon" style="opacity: 50%;">
-                                    <img src="https://github.com/user-attachments/assets/f6449145-e753-4fa5-b6e2-d330139ed906" alt="">
+                                    <img src="https://github.com/user-attachments/assets/f6449145-e753-4fa5-b6e2-d330139ed906"
+                                        alt="">
                                 </div>
 
                                 <div class="arcabooks-app-name">
@@ -1949,7 +2043,8 @@
 
                                 <div class="arcabooks-app-icon">
 
-                                    <img src="https://github.com/user-attachments/assets/6491b76c-fcf4-4253-96aa-83b19933a842" alt="ArcaBooks">
+                                    <img src="https://github.com/user-attachments/assets/6491b76c-fcf4-4253-96aa-83b19933a842"
+                                        alt="ArcaBooks">
 
                                 </div>
 
@@ -2024,7 +2119,8 @@
                 do aparelho e a Dynamic Island.
             -->
 
-                    <img src="https://github.com/user-attachments/assets/02309e24-ace3-4ad3-94dd-2e482cc329ad" alt="iPhone" class="arcabooks-phone-frame">
+                    <img src="https://github.com/user-attachments/assets/02309e24-ace3-4ad3-94dd-2e482cc329ad"
+                        alt="iPhone" class="arcabooks-phone-frame">
 
                 </div>
 
@@ -2087,11 +2183,13 @@
                     <p>Basta tocar nas laterais da tela para avançar ou voltar páginas com mais facilidade.</p>
 
                 </div>
-                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela1.gif" alt="Imagem da função Biblioteca">
+                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela1.gif"
+                        alt="Imagem da função Biblioteca">
                 </div>
             </article>
             <article class="arcabooks-feature arcabooks-feature--reverse">
-                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela2.gif" alt="Imagem da segunda função">
+                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela2.gif"
+                        alt="Imagem da segunda função">
                 </div>
                 <div class="arcabooks-feature-copy">
                     <div class="arcabooks-feature-number">02 — MENU DE LEITURA</div>
@@ -2112,7 +2210,8 @@
                     <p>agora você pode pesquisar palavras dentro do livro sem precisar interromper a leitura.</p>
 
                 </div>
-                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela3.gif" alt="Imagem da função Biblioteca">
+                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela3.gif"
+                        alt="Imagem da função Biblioteca">
                 </div>
             </article>
 
@@ -2125,8 +2224,11 @@
                 <p>Histórias e dicas de transformação que você só encontra aqui</p>
             </div>
             <div class="arcabooks-device">
-                <div class="arcabooks-device-screen"><img src="https://github.com/user-attachments/assets/823cc143-8676-42ae-a042-b08881b3f6f3" alt="Tela do aplicativo — função 01">
-                </div><img class="arcabooks-device-frame" src="https://github.com/user-attachments/assets/823cc143-8676-42ae-a042-b08881b3f6f3" alt="">
+                <div class="arcabooks-device-screen"><img
+                        src="https://github.com/user-attachments/assets/823cc143-8676-42ae-a042-b08881b3f6f3"
+                        alt="Tela do aplicativo — função 01">
+                </div><img class="arcabooks-device-frame"
+                    src="https://github.com/user-attachments/assets/823cc143-8676-42ae-a042-b08881b3f6f3" alt="">
             </div>
         </section>
 
@@ -2138,8 +2240,11 @@
                 </p>
             </div>
             <div class="arcabooks-device">
-                <div class="arcabooks-device-screen"><img src="https://github.com/user-attachments/assets/b3dbf39f-5eda-4db9-a7f9-331d671732f2" alt="Tela do aplicativo — função 02">
-                </div><img class="arcabooks-device-frame" src="https://github.com/user-attachments/assets/b3dbf39f-5eda-4db9-a7f9-331d671732f2" alt="">
+                <div class="arcabooks-device-screen"><img
+                        src="https://github.com/user-attachments/assets/b3dbf39f-5eda-4db9-a7f9-331d671732f2"
+                        alt="Tela do aplicativo — função 02">
+                </div><img class="arcabooks-device-frame"
+                    src="https://github.com/user-attachments/assets/b3dbf39f-5eda-4db9-a7f9-331d671732f2" alt="">
             </div>
         </section>
 
@@ -2169,358 +2274,382 @@
 
         <section class="arcabooks-end">
             <div>
+
                 <div class="arcabooks-eyebrow">ARCA BOOKS</div>
-                <h2>Simples. Prático.<br> <span style="color: #c60c30;""> arcabooks.</span></h2>
-                <p>Um novo app. Uma nova experiencia</p>
+
+                <h2>
+                    <span id="arcabooksTypewriter"></span><span class="arcabooks-typewriter-cursor"></span>
+                </h2>
+
+                <p>Um novo app. Uma nova experiência.</p>
+
+                <div class="arcabooks-end-download">
+
+                    <a class="arcabooks-store-button" href="https://apps.apple.com/br/app/arcabooks/id6444899645"
+                        target="_blank" rel="noopener noreferrer" aria-label="Baixar ArcaBooks na App Store">
+                        <span class="arcabooks-store-small">Disponível na</span>
+                        <span class="arcabooks-store-name">App Store</span>
+                    </a>
+
+                    <a class="arcabooks-store-button"
+                        href="https://play.google.com/store/apps/details?id=br.com.attri.arcabooks" target="_blank"
+                        rel="noopener noreferrer" aria-label="Baixar ArcaBooks no Google Play">
+                        <span class="arcabooks-store-small">Disponível no</span>
+                        <span class="arcabooks-store-name">Google Play</span>
+                    </a>
+
+                </div>
+
             </div>
         </section>
-
         <footer class=" arcabooks-footer">
-                        <div class="arcabooks-footer-brand">
-                            <img class="arcabooks-footer-logo" src="https://github.com/user-attachments/assets/f8b292c3-3cb0-484a-a665-d30b3219f777" alt="ArcaBooks">
-                            <div>
-                                <div class="arcabooks-footer-name">ArcaBooks</div>
-                                <div class="arcabooks-footer-copy">© 2026 ArcaBooks. Todos os direitos reservados.</div>
-                            </div>
-                        </div>
-                        <div class="arcabooks-footer-links">
-                            <a class="arcabooks-footer-link" href="#arcabooksSobre">O app</a>
-                            <a class="arcabooks-footer-link" href="#arcabooksFuncoes">Funções</a>
-                            <a class="arcabooks-footer-link" href="#arcabooksExperiencia">Experiência</a>
-                            <a class="arcabooks-footer-link" href="#arcabooksHero">Voltar ao topo ↑</a>
-                        </div>
-                        </footer>
+            <div class="arcabooks-footer-brand">
+                <img class="arcabooks-footer-logo"
+                    src="https://github.com/user-attachments/assets/f8b292c3-3cb0-484a-a665-d30b3219f777"
+                    alt="ArcaBooks">
+                <div>
+                    <div class="arcabooks-footer-name">ArcaBooks</div>
+                    <div class="arcabooks-footer-copy">© 2026 ArcaBooks. Todos os direitos reservados.</div>
+                </div>
+            </div>
+            <div class="arcabooks-footer-links">
+                <a class="arcabooks-footer-link" href="#arcabooksSobre">O app</a>
+                <a class="arcabooks-footer-link" href="#arcabooksFuncoes">Funções</a>
+                <a class="arcabooks-footer-link" href="#arcabooksExperiencia">Experiência</a>
+                <a class="arcabooks-footer-link" href="#arcabooksHero">Voltar ao topo ↑</a>
+            </div>
+        </footer>
 
-            </div><!-- /#arcabooksPage -->
+    </div><!-- /#arcabooksPage -->
 
-            <script>
+    <script>
 
-                /* =========================================================
-                   ARCA BOOKS
-                   ANIMAÇÃO PRINCIPAL
-                ========================================================= */
-
-
-                (function () {
-
-
-                    /* =====================================================
-                       ELEMENTOS
-                    ===================================================== */
-
-                    const hero =
-                        document.getElementById(
-                            "arcabooksHero"
-                        );
+        /* =========================================================
+           ARCA BOOKS
+           ANIMAÇÃO PRINCIPAL
+        ========================================================= */
 
 
-                    const logo =
-                        document.getElementById(
-                            "arcabooksLogo"
-                        );
+        (function () {
 
 
-                    const phone =
-                        document.getElementById(
-                            "arcabooksPhone"
-                        );
+            /* =====================================================
+               ELEMENTOS
+            ===================================================== */
+
+            const hero =
+                document.getElementById(
+                    "arcabooksHero"
+                );
 
 
-                    const app =
-                        document.getElementById(
-                            "arcabooksApp"
-                        );
+            const logo =
+                document.getElementById(
+                    "arcabooksLogo"
+                );
 
 
-                    const transitionLogo =
-                        document.getElementById(
-                            "arcabooksLogoTransition"
-                        );
+            const phone =
+                document.getElementById(
+                    "arcabooksPhone"
+                );
 
 
-                    const finalText =
-                        document.getElementById(
-                            "arcabooksFinalText"
-                        );
+            const app =
+                document.getElementById(
+                    "arcabooksApp"
+                );
 
 
-                    const introText =
-                        document.getElementById(
-                            "arcabooksIntroText"
-                        );
+            const transitionLogo =
+                document.getElementById(
+                    "arcabooksLogoTransition"
+                );
 
 
-                    const whiteTransition =
-                        document.getElementById(
-                            "arcabooksWhiteTransition"
-                        );
+            const finalText =
+                document.getElementById(
+                    "arcabooksFinalText"
+                );
 
 
-                    let ticking = false;
+            const introText =
+                document.getElementById(
+                    "arcabooksIntroText"
+                );
+
+
+            const whiteTransition =
+                document.getElementById(
+                    "arcabooksWhiteTransition"
+                );
+
+
+            let ticking = false;
 
 
 
-                    /* =====================================================
-                       UTILITÁRIOS
-                    ===================================================== */
+            /* =====================================================
+               UTILITÁRIOS
+            ===================================================== */
 
 
-                    function clamp(
+            function clamp(
+                value,
+                min,
+                max
+            ) {
+
+                return Math.min(
+                    Math.max(
                         value,
-                        min,
-                        max
-                    ) {
+                        min
+                    ),
+                    max
+                );
 
-                        return Math.min(
-                            Math.max(
-                                value,
-                                min
-                            ),
-                            max
+            }
+
+
+
+            function lerp(
+                start,
+                end,
+                amount
+            ) {
+
+                return start +
+                    (
+                        end -
+                        start
+                    ) *
+                    amount;
+
+            }
+
+
+
+            function easeInOutCubic(
+                value
+            ) {
+
+                return value < 0.5
+
+                    ?
+
+                    4 *
+                    value *
+                    value *
+                    value
+
+                    :
+
+                    1 -
+                    Math.pow(
+                        -2 * value + 2,
+                        3
+                    ) /
+                    2;
+
+            }
+
+
+
+            function easeOutCubic(
+                value
+            ) {
+
+                return 1 -
+                    Math.pow(
+                        1 - value,
+                        3
+                    );
+
+            }
+
+
+
+            /* =====================================================
+               POSIÇÃO REAL DO ÍCONE
+            ===================================================== */
+
+            function getAppTarget() {
+
+
+                const icon =
+                    app.querySelector(
+                        ".arcabooks-app-icon"
+                    );
+
+
+                const rect =
+                    icon.getBoundingClientRect();
+
+
+                return {
+
+                    x:
+                        rect.left +
+                        rect.width / 2,
+
+                    y:
+                        rect.top +
+                        rect.height / 2,
+
+                    width:
+                        rect.width,
+
+                    height:
+                        rect.height
+
+                };
+
+            }
+
+
+
+            /* =====================================================
+               ANIMAÇÃO
+            ===================================================== */
+
+            function updateAnimation() {
+
+
+                const heroRect =
+                    hero.getBoundingClientRect();
+
+
+                const maxScroll =
+                    hero.offsetHeight -
+                    window.innerHeight;
+
+
+                let progress =
+                    -heroRect.top /
+                    maxScroll;
+
+
+                progress =
+                    clamp(
+                        progress,
+                        0,
+                        1
+                    );
+
+
+
+                /* =================================================
+                   LOGO
+                ================================================= */
+
+
+                const logoEnd =
+                    0.60;
+
+
+                const logoProgress =
+                    clamp(
+                        progress /
+                        logoEnd,
+                        0,
+                        1
+                    );
+
+
+                const logoEase =
+                    easeInOutCubic(
+                        logoProgress
+                    );
+
+
+                /*
+                 * Zoom inicial:
+                 *
+                 * 0.78 → 1.08
+                 *
+                 * Depois:
+                 *
+                 * 1.08 → 1.00
+                 */
+
+
+                let logoScale;
+
+
+                if (
+                    logoEase < 0.78
+                ) {
+
+                    const zoom =
+                        logoEase /
+                        0.78;
+
+
+                    logoScale =
+                        lerp(
+                            0.78,
+                            1.08,
+                            easeOutCubic(
+                                zoom
+                            )
                         );
 
-                    }
+                } else {
+
+                    const settle =
+                        (
+                            logoEase -
+                            0.78
+                        ) /
+                        0.22;
 
 
-
-                    function lerp(
-                        start,
-                        end,
-                        amount
-                    ) {
-
-                        return start +
-                            (
-                                end -
-                                start
-                            ) *
-                            amount;
-
-                    }
-
-
-
-                    function easeInOutCubic(
-                        value
-                    ) {
-
-                        return value < 0.5
-
-                            ?
-
-                            4 *
-                            value *
-                            value *
-                            value
-
-                            :
-
-                            1 -
-                            Math.pow(
-                                -2 * value + 2,
-                                3
-                            ) /
-                            2;
-
-                    }
-
-
-
-                    function easeOutCubic(
-                        value
-                    ) {
-
-                        return 1 -
-                            Math.pow(
-                                1 - value,
-                                3
-                            );
-
-                    }
-
-
-
-                    /* =====================================================
-                       POSIÇÃO REAL DO ÍCONE
-                    ===================================================== */
-
-                    function getAppTarget() {
-
-
-                        const icon =
-                            app.querySelector(
-                                ".arcabooks-app-icon"
-                            );
-
-
-                        const rect =
-                            icon.getBoundingClientRect();
-
-
-                        return {
-
-                            x:
-                                rect.left +
-                                rect.width / 2,
-
-                            y:
-                                rect.top +
-                                rect.height / 2,
-
-                            width:
-                                rect.width,
-
-                            height:
-                                rect.height
-
-                        };
-
-                    }
-
-
-
-                    /* =====================================================
-                       ANIMAÇÃO
-                    ===================================================== */
-
-                    function updateAnimation() {
-
-
-                        const heroRect =
-                            hero.getBoundingClientRect();
-
-
-                        const maxScroll =
-                            hero.offsetHeight -
-                            window.innerHeight;
-
-
-                        let progress =
-                            -heroRect.top /
-                            maxScroll;
-
-
-                        progress =
-                            clamp(
-                                progress,
-                                0,
-                                1
-                            );
-
-
-
-                        /* =================================================
-                           LOGO
-                        ================================================= */
-
-
-                        const logoEnd =
-                            0.60;
-
-
-                        const logoProgress =
-                            clamp(
-                                progress /
-                                logoEnd,
-                                0,
-                                1
-                            );
-
-
-                        const logoEase =
+                    logoScale =
+                        lerp(
+                            1.08,
+                            1.00,
                             easeInOutCubic(
-                                logoProgress
-                            );
+                                settle
+                            )
+                        );
 
-
-                        /*
-                         * Zoom inicial:
-                         *
-                         * 0.78 → 1.08
-                         *
-                         * Depois:
-                         *
-                         * 1.08 → 1.00
-                         */
-
-
-                        let logoScale;
-
-
-                        if (
-                            logoEase < 0.78
-                        ) {
-
-                            const zoom =
-                                logoEase /
-                                0.78;
-
-
-                            logoScale =
-                                lerp(
-                                    0.78,
-                                    1.08,
-                                    easeOutCubic(
-                                        zoom
-                                    )
-                                );
-
-                        } else {
-
-                            const settle =
-                                (
-                                    logoEase -
-                                    0.78
-                                ) /
-                                0.22;
-
-
-                            logoScale =
-                                lerp(
-                                    1.08,
-                                    1.00,
-                                    easeInOutCubic(
-                                        settle
-                                    )
-                                );
-
-                        }
+                }
 
 
 
-                        /*
-                         * Rotação 3D.
-                         */
+                /*
+                 * Rotação 3D.
+                 */
 
-                        const rotation =
-                            lerp(
-                                0,
-                                1080,
-                                logoEase
-                            );
-
-
-
-                        /*
-                         * Profundidade.
-                         */
-
-                        const depth =
-                            lerp(
-                                0,
-                                80,
-                                logoEase
-                            );
+                const rotation =
+                    lerp(
+                        0,
+                        1080,
+                        logoEase
+                    );
 
 
 
-                        /*
-                         * Logo principal.
-                         */
+                /*
+                 * Profundidade.
+                 */
 
-                        logo.style.transform =
+                const depth =
+                    lerp(
+                        0,
+                        80,
+                        logoEase
+                    );
 
-                            `
+
+
+                /*
+                 * Logo principal.
+                 */
+
+                logo.style.transform =
+
+                    `
             translate3d(
                 -50%,
                 -50%,
@@ -2538,67 +2667,67 @@
 
 
 
-                        /* =================================================
-                           CELULAR
-                        ================================================= */
+                /* =================================================
+                   CELULAR
+                ================================================= */
 
 
-                        const phoneStart =
-                            0.42;
+                const phoneStart =
+                    0.42;
 
 
-                        const phoneEnd =
-                            0.80;
+                const phoneEnd =
+                    0.80;
 
 
-                        const phoneProgress =
-                            clamp(
-                                (
-                                    progress -
-                                    phoneStart
-                                ) /
-                                (
-                                    phoneEnd -
-                                    phoneStart
-                                ),
-                                0,
-                                1
-                            );
+                const phoneProgress =
+                    clamp(
+                        (
+                            progress -
+                            phoneStart
+                        ) /
+                        (
+                            phoneEnd -
+                            phoneStart
+                        ),
+                        0,
+                        1
+                    );
 
 
-                        const phoneEase =
-                            easeInOutCubic(
-                                phoneProgress
-                            );
+                const phoneEase =
+                    easeInOutCubic(
+                        phoneProgress
+                    );
 
 
-                        const phoneY =
-                            lerp(
-                                115,
-                                0,
-                                phoneEase
-                            );
+                const phoneY =
+                    lerp(
+                        115,
+                        0,
+                        phoneEase
+                    );
 
 
-                        const phoneScale =
-                            lerp(
-                                0.90,
-                                1,
-                                phoneEase
-                            );
+                const phoneScale =
+                    lerp(
+                        0.90,
+                        1,
+                        phoneEase
+                    );
 
 
-                        const phoneRotation =
-                            lerp(
-                                -5,
-                                0,
-                                phoneEase
-                            );
+                const phoneRotation =
+                    lerp(
+                        -5,
+                        0,
+                        phoneEase
+                    );
 
 
-                        phone.style.transform =
+                phone.style.transform =
 
-                            `
+                    `
             translate3d(
                 -50%,
                 calc(
@@ -2618,252 +2747,252 @@
             `;
 
 
-                        phone.style.opacity =
-                            easeOutCubic(
-                                phoneProgress
-                            );
+                phone.style.opacity =
+                    easeOutCubic(
+                        phoneProgress
+                    );
 
 
 
-                        /* =================================================
-                           TRANSIÇÃO PARA O ÍCONE
-                        ================================================= */
+                /* =================================================
+                   TRANSIÇÃO PARA O ÍCONE
+                ================================================= */
 
 
-                        /*
-                         * A transição começa MAIS TARDE.
-                         *
-                         * Isso evita aquela sensação
-                         * de que o logo sai correndo
-                         * para o canto da tela.
-                         */
+                /*
+                 * A transição começa MAIS TARDE.
+                 *
+                 * Isso evita aquela sensação
+                 * de que o logo sai correndo
+                 * para o canto da tela.
+                 */
 
 
-                        const transitionStart =
-                            0.64;
+                const transitionStart =
+                    0.64;
 
 
-                        const transitionEnd =
-                            0.91;
+                const transitionEnd =
+                    0.91;
 
 
-                        const transitionProgress =
-                            clamp(
-                                (
-                                    progress -
-                                    transitionStart
-                                ) /
-                                (
-                                    transitionEnd -
-                                    transitionStart
-                                ),
-                                0,
-                                1
-                            );
+                const transitionProgress =
+                    clamp(
+                        (
+                            progress -
+                            transitionStart
+                        ) /
+                        (
+                            transitionEnd -
+                            transitionStart
+                        ),
+                        0,
+                        1
+                    );
 
 
-                        const transitionEase =
-                            easeInOutCubic(
-                                transitionProgress
-                            );
-
-
-
-                        /* =================================================
-                           TARGET
-                        ================================================= */
-
-
-                        const target =
-                            getAppTarget();
-
-
-                        const startX =
-                            window.innerWidth / 2;
-
-
-                        const startY =
-                            window.innerHeight / 2;
+                const transitionEase =
+                    easeInOutCubic(
+                        transitionProgress
+                    );
 
 
 
-                        /*
-                         * Para ficar natural,
-                         * o logo não vai diretamente
-                         * em linha reta para o ícone.
-                         *
-                         * Criamos uma pequena curva.
-                         */
+                /* =================================================
+                   TARGET
+                ================================================= */
 
 
-                        const curvedProgress =
-                            transitionEase;
+                const target =
+                    getAppTarget();
 
 
-                        const baseX =
-                            lerp(
-                                startX,
-                                target.x,
-                                curvedProgress
-                            );
+                const startX =
+                    window.innerWidth / 2;
 
 
-                        const baseY =
-                            lerp(
-                                startY,
-                                target.y,
-                                curvedProgress
-                            );
+                const startY =
+                    window.innerHeight / 2;
 
 
 
-                        /*
-                         * Curva muito suave.
-                         *
-                         * Ela fica quase imperceptível,
-                         * evitando o movimento grotesco
-                         * que havia antes.
-                         */
+                /*
+                 * Para ficar natural,
+                 * o logo não vai diretamente
+                 * em linha reta para o ícone.
+                 *
+                 * Criamos uma pequena curva.
+                 */
 
 
-                        const curve =
-                            Math.sin(
-                                curvedProgress *
-                                Math.PI
-                            );
+                const curvedProgress =
+                    transitionEase;
 
 
-                        const curveX =
-                            curve *
-                            18;
+                const baseX =
+                    lerp(
+                        startX,
+                        target.x,
+                        curvedProgress
+                    );
 
 
-                        const curveY =
-                            curve *
-                            -10;
-
-
-
-                        const currentX =
-                            baseX +
-                            curveX;
-
-
-                        const currentY =
-                            baseY +
-                            curveY;
+                const baseY =
+                    lerp(
+                        startY,
+                        target.y,
+                        curvedProgress
+                    );
 
 
 
-                        /* =================================================
-                           TAMANHO
-                        ================================================= */
+                /*
+                 * Curva muito suave.
+                 *
+                 * Ela fica quase imperceptível,
+                 * evitando o movimento grotesco
+                 * que havia antes.
+                 */
 
 
-                        const initialSize =
-                            Math.min(
-                                320,
-                                window.innerWidth *
-                                0.55
-                            );
+                const curve =
+                    Math.sin(
+                        curvedProgress *
+                        Math.PI
+                    );
 
 
-                        const finalSize =
-                            target.width;
+                const curveX =
+                    curve *
+                    18;
+
+
+                const curveY =
+                    curve *
+                    -10;
 
 
 
-                        /*
-                         * O tamanho não reduz
-                         * imediatamente.
-                         *
-                         * Primeiro ele permanece
-                         * grande por alguns instantes.
-                         */
+                const currentX =
+                    baseX +
+                    curveX;
 
 
-                        let sizeProgress;
+                const currentY =
+                    baseY +
+                    curveY;
 
 
-                        if (
-                            transitionEase <
+
+                /* =================================================
+                   TAMANHO
+                ================================================= */
+
+
+                const initialSize =
+                    Math.min(
+                        320,
+                        window.innerWidth *
+                        0.55
+                    );
+
+
+                const finalSize =
+                    target.width;
+
+
+
+                /*
+                 * O tamanho não reduz
+                 * imediatamente.
+                 *
+                 * Primeiro ele permanece
+                 * grande por alguns instantes.
+                 */
+
+
+                let sizeProgress;
+
+
+                if (
+                    transitionEase <
+                    0.25
+                ) {
+
+                    sizeProgress =
+                        0;
+
+                } else {
+
+                    sizeProgress =
+                        (
+                            transitionEase -
                             0.25
-                        ) {
+                        ) /
+                        0.75;
 
-                            sizeProgress =
-                                0;
-
-                        } else {
-
-                            sizeProgress =
-                                (
-                                    transitionEase -
-                                    0.25
-                                ) /
-                                0.75;
-
-                        }
+                }
 
 
-                        sizeProgress =
-                            clamp(
-                                sizeProgress,
-                                0,
-                                1
-                            );
+                sizeProgress =
+                    clamp(
+                        sizeProgress,
+                        0,
+                        1
+                    );
 
 
-                        const sizeEase =
-                            easeInOutCubic(
-                                sizeProgress
-                            );
+                const sizeEase =
+                    easeInOutCubic(
+                        sizeProgress
+                    );
 
 
-                        const currentSize =
-                            lerp(
-                                initialSize,
-                                finalSize,
-                                sizeEase
-                            );
+                const currentSize =
+                    lerp(
+                        initialSize,
+                        finalSize,
+                        sizeEase
+                    );
 
 
 
-                        const scale =
-                            currentSize /
-                            initialSize;
+                const scale =
+                    currentSize /
+                    initialSize;
 
 
 
-                        /* =================================================
-                           PROFUNDIDADE
-                        ================================================= */
+                /* =================================================
+                   PROFUNDIDADE
+                ================================================= */
 
 
-                        const z =
-                            lerp(
-                                90,
-                                0,
-                                transitionEase
-                            );
+                const z =
+                    lerp(
+                        90,
+                        0,
+                        transitionEase
+                    );
 
 
 
-                        /* =================================================
-                           MOVIMENTO DO LOGO
-                        ================================================= */
+                /* =================================================
+                   MOVIMENTO DO LOGO
+                ================================================= */
 
 
-                        transitionLogo.style.width =
-                            `${initialSize}px`;
+                transitionLogo.style.width =
+                    `${initialSize}px`;
 
 
-                        transitionLogo.style.height =
-                            `${initialSize}px`;
+                transitionLogo.style.height =
+                    `${initialSize}px`;
 
 
-                        transitionLogo.style.transform =
+                transitionLogo.style.transform =
 
-                            `
+                    `
             translate3d(
                 calc(
                     ${currentX}px -
@@ -2885,425 +3014,500 @@
 
 
 
-                        /* =================================================
-                           OPACIDADE
-                        ================================================= */
+                /* =================================================
+                   OPACIDADE
+                ================================================= */
 
 
-                        /*
-                         * Ele nasce praticamente
-                         * junto com o desaparecimento
-                         * do logo original.
-                         */
+                /*
+                 * Ele nasce praticamente
+                 * junto com o desaparecimento
+                 * do logo original.
+                 */
 
 
-                        let transitionOpacity;
+                let transitionOpacity;
 
 
-                        if (
-                            transitionProgress <
-                            0.08
-                        ) {
+                if (
+                    transitionProgress <
+                    0.08
+                ) {
 
-                            transitionOpacity =
-                                transitionProgress /
-                                0.08;
+                    transitionOpacity =
+                        transitionProgress /
+                        0.08;
 
-                        } else {
+                } else {
 
-                            transitionOpacity = 1;
+                    transitionOpacity = 1;
 
-                        }
+                }
 
 
-                        transitionLogo.style.opacity =
-                            clamp(
-                                transitionOpacity,
-                                0,
-                                1
-                            );
+                transitionLogo.style.opacity =
+                    clamp(
+                        transitionOpacity,
+                        0,
+                        1
+                    );
 
 
 
-                        /* =================================================
-                           LOGO ORIGINAL
-                        ================================================= */
+                /* =================================================
+                   LOGO ORIGINAL
+                ================================================= */
 
 
-                        /*
-                         * O logo original só começa
-                         * a desaparecer quando o
-                         * segundo logo já está
-                         * praticamente sobreposto.
-                         */
+                /*
+                 * O logo original só começa
+                 * a desaparecer quando o
+                 * segundo logo já está
+                 * praticamente sobreposto.
+                 */
 
 
-                        let originalOpacity;
+                let originalOpacity;
 
 
-                        if (
-                            transitionProgress <
-                            0.05
-                        ) {
+                if (
+                    transitionProgress <
+                    0.05
+                ) {
 
-                            originalOpacity = 1;
+                    originalOpacity = 1;
 
-                        } else {
+                } else {
 
-                            const fade =
-                                clamp(
-                                    (
-                                        transitionProgress -
-                                        0.05
-                                    ) /
-                                    0.18,
-                                    0,
-                                    1
-                                );
+                    const fade =
+                        clamp(
+                            (
+                                transitionProgress -
+                                0.05
+                            ) /
+                            0.18,
+                            0,
+                            1
+                        );
 
 
-                            originalOpacity =
-                                1 -
-                                easeInOutCubic(
-                                    fade
-                                );
+                    originalOpacity =
+                        1 -
+                        easeInOutCubic(
+                            fade
+                        );
 
-                        }
+                }
 
 
-                        logo.style.opacity =
-                            originalOpacity;
+                logo.style.opacity =
+                    originalOpacity;
 
 
 
-                        /* =================================================
-                           ÍCONE FINAL
-                        ================================================= */
+                /* =================================================
+                   ÍCONE FINAL
+                ================================================= */
 
 
-                        /*
-                         * O ícone original fica
-                         * praticamente invisível
-                         * enquanto o logo chega.
-                         *
-                         * Depois aparece por baixo.
-                         */
+                /*
+                 * O ícone original fica
+                 * praticamente invisível
+                 * enquanto o logo chega.
+                 *
+                 * Depois aparece por baixo.
+                 */
 
 
-                        const iconReveal =
-                            clamp(
-                                (
-                                    transitionProgress -
-                                    0.82
-                                ) /
-                                0.18,
-                                0,
-                                1
-                            );
+                const iconReveal =
+                    clamp(
+                        (
+                            transitionProgress -
+                            0.82
+                        ) /
+                        0.18,
+                        0,
+                        1
+                    );
 
 
-                        app.style.opacity =
-                            lerp(
-                                0.55,
-                                1,
-                                easeOutCubic(
-                                    iconReveal
-                                )
-                            );
+                app.style.opacity =
+                    lerp(
+                        0.55,
+                        1,
+                        easeOutCubic(
+                            iconReveal
+                        )
+                    );
 
 
 
-                        /*
-                         * Pequeno destaque final.
-                         */
+                /*
+                 * Pequeno destaque final.
+                 */
 
 
-                        const finalScale =
-                            lerp(
-                                1,
-                                1.08,
-                                easeOutCubic(
-                                    iconReveal
-                                )
-                            );
+                const finalScale =
+                    lerp(
+                        1,
+                        1.08,
+                        easeOutCubic(
+                            iconReveal
+                        )
+                    );
 
 
-                        app.style.transform =
-                            `scale(${finalScale})`;
+                app.style.transform =
+                    `scale(${finalScale})`;
 
 
 
-                        /* =================================================
-                           FUNDO BRANCO — PUMP FINAL
-                        ================================================= */
+                /* =================================================
+                   FUNDO BRANCO — PUMP FINAL
+                ================================================= */
 
-                        const whiteStart =
-                            0.875;
+                const whiteStart =
+                    0.875;
 
-                        const whiteProgress =
-                            clamp(
-                                (
-                                    progress -
-                                    whiteStart
-                                ) /
-                                0.125,
-                                0,
-                                1
-                            );
+                const whiteProgress =
+                    clamp(
+                        (
+                            progress -
+                            whiteStart
+                        ) /
+                        0.125,
+                        0,
+                        1
+                    );
 
-                        whiteTransition.style.opacity =
-                            easeInOutCubic(
-                                whiteProgress
-                            );
+                whiteTransition.style.opacity =
+                    easeInOutCubic(
+                        whiteProgress
+                    );
 
 
-                        /* =================================================
-                           TEXTO DE ABERTURA
-                        ================================================= */
+                /* =================================================
+                   TEXTO DE ABERTURA
+                ================================================= */
 
-                        let introOpacity = 0;
-                        let introY = 18;
-                        let introBlur = 8;
+                let introOpacity = 0;
+                let introY = 18;
+                let introBlur = 8;
 
-                        if (progress >= 0.025 && progress < 0.12) {
+                if (progress >= 0.025 && progress < 0.12) {
 
-                            const p = (progress - 0.025) / 0.095;
-                            const e = 1 - Math.pow(1 - p, 3);
+                    const p = (progress - 0.025) / 0.095;
+                    const e = 1 - Math.pow(1 - p, 3);
 
-                            introOpacity = e;
-                            introY = 18 * (1 - e);
-                            introBlur = 8 * (1 - e);
+                    introOpacity = e;
+                    introY = 18 * (1 - e);
+                    introBlur = 8 * (1 - e);
 
-                        } else if (progress >= 0.12 && progress < 0.30) {
+                } else if (progress >= 0.12 && progress < 0.30) {
 
-                            introOpacity = 1;
-                            introY = 0;
-                            introBlur = 0;
+                    introOpacity = 1;
+                    introY = 0;
+                    introBlur = 0;
 
-                        } else if (progress >= 0.30 && progress < 0.43) {
+                } else if (progress >= 0.30 && progress < 0.43) {
 
-                            const p = (progress - 0.30) / 0.13;
-                            const e = p * p * (3 - 2 * p);
+                    const p = (progress - 0.30) / 0.13;
+                    const e = p * p * (3 - 2 * p);
 
-                            introOpacity = 1 - e;
-                            introY = -8 * e;
-                            introBlur = 4 * e;
+                    introOpacity = 1 - e;
+                    introY = -8 * e;
+                    introBlur = 4 * e;
 
-                        }
+                }
 
-                        introText.style.opacity = introOpacity;
+                introText.style.opacity = introOpacity;
 
-                        introText.style.transform =
-                            `translate3d(-50%, ${introY}px, 0)`;
+                introText.style.transform =
+                    `translate3d(-50%, ${introY}px, 0)`;
 
-                        introText.style.filter =
-                            `blur(${introBlur}px)`;
+                introText.style.filter =
+                    `blur(${introBlur}px)`;
 
-                        /* brilho passando suavemente pelas duas linhas */
-                        let glowProgress =
-                            clamp((progress - 0.055) / 0.18, 0, 1);
+                /* brilho passando suavemente pelas duas linhas */
+                let glowProgress =
+                    clamp((progress - 0.055) / 0.18, 0, 1);
 
-                        introText
-                            .querySelectorAll('.arcabooks-intro-line')
-                            .forEach((line, index) => {
+                introText
+                    .querySelectorAll('.arcabooks-intro-line')
+                    .forEach((line, index) => {
 
-                                const delay = index * 0.16;
-                                const sweep = clamp(
-                                    (glowProgress - delay) / 0.84,
-                                    0,
-                                    1
-                                );
+                        const delay = index * 0.16;
+                        const sweep = clamp(
+                            (glowProgress - delay) / 0.84,
+                            0,
+                            1
+                        );
 
-                                line.style.setProperty(
-                                    '--intro-glow',
-                                    `${-45 + sweep * 210}%`
-                                );
+                        line.style.setProperty(
+                            '--intro-glow',
+                            `${-45 + sweep * 210}%`
+                        );
 
-                                line.style.setProperty(
-                                    '--intro-glow-opacity',
-                                    sweep > 0 && sweep < 1
-                                        ? Math.sin(sweep * Math.PI)
-                                        : 0
-                                );
+                        line.style.setProperty(
+                            '--intro-glow-opacity',
+                            sweep > 0 && sweep < 1
+                                ? Math.sin(sweep * Math.PI)
+                                : 0
+                        );
 
-                            });
+                    });
 
 
-                        /* =================================================
-                           TEXTO FINAL
-                        ================================================= */
+                /* =================================================
+                   TEXTO FINAL
+                ================================================= */
 
 
-                        const textStart =
-                            0.88;
+                const textStart =
+                    0.88;
 
 
-                        const textProgress =
-                            clamp(
-                                (
-                                    progress -
-                                    textStart
-                                ) /
-                                0.12,
-                                0,
-                                1
-                            );
+                const textProgress =
+                    clamp(
+                        (
+                            progress -
+                            textStart
+                        ) /
+                        0.12,
+                        0,
+                        1
+                    );
 
 
-                        const textEase =
-                            easeOutCubic(
-                                textProgress
-                            );
+                const textEase =
+                    easeOutCubic(
+                        textProgress
+                    );
 
 
-                        finalText.style.opacity =
-                            textEase;
+                finalText.style.opacity =
+                    textEase;
 
-                        finalText.style.color =
-                            `rgb(${Math.round(255 - 235 * whiteProgress)}, ${Math.round(255 - 235 * whiteProgress)}, ${Math.round(255 - 235 * whiteProgress)})`;
+                finalText.style.color =
+                    `rgb(${Math.round(255 - 235 * whiteProgress)}, ${Math.round(255 - 235 * whiteProgress)}, ${Math.round(255 - 235 * whiteProgress)})`;
 
 
-                        finalText.style.transform =
+                finalText.style.transform =
 
-                            `
+                    `
             translateX(-50%)
 
             translateY(
                 ${lerp(
-                                35,
-                                0,
-                                textEase
-                            )}px
+                        35,
+                        0,
+                        textEase
+                    )}px
             )
             `;
 
 
 
-                        ticking = false;
+                ticking = false;
 
-                    }
-
-
-
-                    /* =====================================================
-                       SCROLL ENGINE
-                    ===================================================== */
+            }
 
 
-                    function requestUpdate() {
 
-                        if (!ticking) {
-
-                            window.requestAnimationFrame(
-                                updateAnimation
-                            );
-
-                            ticking = true;
-
-                        }
-
-                    }
+            /* =====================================================
+               SCROLL ENGINE
+            ===================================================== */
 
 
-                    window.addEventListener(
-                        "scroll",
-                        requestUpdate,
-                        {
-                            passive: true
-                        }
+            function requestUpdate() {
+
+                if (!ticking) {
+
+                    window.requestAnimationFrame(
+                        updateAnimation
                     );
 
+                    ticking = true;
 
-                    window.addEventListener(
-                        "resize",
-                        requestUpdate
-                    );
+                }
+
+            }
+
+
+            window.addEventListener(
+                "scroll",
+                requestUpdate,
+                {
+                    passive: true
+                }
+            );
+
+
+            window.addEventListener(
+                "resize",
+                requestUpdate
+            );
 
 
 
-                    /* =====================================================
-                       INICIALIZAÇÃO
-                    ===================================================== */
+            /* =====================================================
+               INICIALIZAÇÃO
+            ===================================================== */
 
-                    window.addEventListener(
-                        "load",
-                        function () {
-
-                            updateAnimation();
-
-                        }
-                    );
-
+            window.addEventListener(
+                "load",
+                function () {
 
                     updateAnimation();
 
-
-                })();
-
-            </script>
-
-            <script>
-                (function () {
-                    const root = document.getElementById('arcabooksPage'); if (!root) return;
-                    const pageNav = root.querySelector('#arcabooksPageNav'), hero = root.querySelector('#arcabooksHero');
-                    const animatedBlocks = root.querySelectorAll('.arcabooks-feature,.arcabooks-device-stage');
-                    function updatePageNav() { if (!pageNav || !hero) return; pageNav.classList.toggle('is-light', hero.getBoundingClientRect().bottom <= 76) }
-                    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible') }), { threshold: .18, rootMargin: '0px 0px -8% 0px' });
-                    animatedBlocks.forEach(block => observer.observe(block));
-                    root.querySelectorAll('.arcabooks-nav-link,.arcabooks-nav-button,.arcabooks-nav-brand').forEach(link => link.addEventListener('click', event => { const href = link.getAttribute('href') || ''; if (!href.startsWith('#')) return; const target = root.querySelector(href); if (!target) return; event.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }) }));
-                    window.addEventListener('scroll', updatePageNav, { passive: true }); window.addEventListener('resize', updatePageNav); updatePageNav();
-                })();
-            </script>
+                }
+            );
 
 
-            <script>
-                (function () { const root = document.getElementById('arcabooksPage'); if (!root) return; const menu = document.getElementById('arcabooksMobileMenu'), close = document.getElementById('arcabooksMobileClose'), overlay = document.getElementById('arcabooksMobileOverlay'), drawer = document.getElementById('arcabooksMobileDrawer'); if (!menu || !close || !overlay || !drawer) return; function openMenu() { root.classList.add('mobile-menu-open'); menu.setAttribute('aria-expanded', 'true'); drawer.setAttribute('aria-hidden', 'false') } function closeMenu() { root.classList.remove('mobile-menu-open'); menu.setAttribute('aria-expanded', 'false'); drawer.setAttribute('aria-hidden', 'true') } menu.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu); drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu)); window.addEventListener('resize', () => { if (innerWidth > 800) closeMenu() }) })();
-            </script>
+            updateAnimation();
 
-            <style id="arcabooks-telas-exatas">
-                /* AJUSTE FINAL — somente encaixe das telas Biblioteca e Inicial */
-                #arcabooksPage .arcabooks-device-screen {
-                    top: 10.2%;
-                    right: 8.2%;
-                    bottom: 10.2%;
-                    left: 8.2%;
-                    border-radius: 7.5% / 4.2%;
-                    padding: 0;
-                    overflow: hidden;
+
+        })();
+
+        (function () {
+
+            "use strict";
+
+            function initArcaBooksTypewriter() {
+
+                var text = document.getElementById("arcabooksTypewriter");
+
+                if (!text || text.dataset.typewriterReady === "1") {
+                    return;
                 }
 
-                #arcabooksPage .arcabooks-device-screen img {
-                    width: 100%;
-                    height: 100%;
-                    max-width: none;
-                    max-height: none;
-                    margin: 0;
-                    display: block;
-                    object-fit: cover;
-                    object-position: center;
-                    border-radius: inherit;
-                }
+                text.dataset.typewriterReady = "1";
 
-                @media (max-width: 1080px) {
-                    #arcabooksPage .arcabooks-device-screen {
-                        top: 10.2%;
-                        right: 8.2%;
-                        bottom: 10.2%;
-                        left: 8.2%;
-                        border-radius: 7.5% / 4.2%;
+                var phrase = "Simples. Prático. arcabooks.";
+                var position = 0;
+                var deleting = false;
+
+                function type() {
+
+                    if (!deleting) {
+
+                        position++;
+
+                        text.textContent = phrase.substring(0, position);
+
+                        if (position >= phrase.length) {
+
+                            setTimeout(function () {
+                                deleting = true;
+                                type();
+                            }, 2200);
+
+                            return;
+                        }
+
+                        setTimeout(type, 75);
+
+                    } else {
+
+                        position--;
+
+                        text.textContent = phrase.substring(0, position);
+
+                        if (position <= 0) {
+
+                            deleting = false;
+
+                            setTimeout(type, 500);
+
+                            return;
+                        }
+
+                        setTimeout(type, 45);
                     }
-
-                    #arcabooksPage .arcabooks-device-screen img {
-                        width: 100%;
-                        height: 100%;
-                        max-width: none;
-                        max-height: none;
-                        margin: 0;
-                        object-fit: cover;
-                        object-position: center;
-                    }
                 }
-            </style>
+
+                type();
+            }
+
+            if (document.readyState === "loading") {
+
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    initArcaBooksTypewriter
+                );
+
+            } else {
+
+                initArcaBooksTypewriter();
+
+            }
+
+        })();
+
+    </script>
+
+    <script>
+        (function () {
+            const root = document.getElementById('arcabooksPage'); if (!root) return;
+            const pageNav = root.querySelector('#arcabooksPageNav'), hero = root.querySelector('#arcabooksHero');
+            const animatedBlocks = root.querySelectorAll('.arcabooks-feature,.arcabooks-device-stage');
+            function updatePageNav() { if (!pageNav || !hero) return; pageNav.classList.toggle('is-light', hero.getBoundingClientRect().bottom <= 76) }
+            const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible') }), { threshold: .18, rootMargin: '0px 0px -8% 0px' });
+            animatedBlocks.forEach(block => observer.observe(block));
+            root.querySelectorAll('.arcabooks-nav-link,.arcabooks-nav-button,.arcabooks-nav-brand').forEach(link => link.addEventListener('click', event => { const href = link.getAttribute('href') || ''; if (!href.startsWith('#')) return; const target = root.querySelector(href); if (!target) return; event.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }) }));
+            window.addEventListener('scroll', updatePageNav, { passive: true }); window.addEventListener('resize', updatePageNav); updatePageNav();
+        })();
+    </script>
+
+
+    <script>
+        (function () { const root = document.getElementById('arcabooksPage'); if (!root) return; const menu = document.getElementById('arcabooksMobileMenu'), close = document.getElementById('arcabooksMobileClose'), overlay = document.getElementById('arcabooksMobileOverlay'), drawer = document.getElementById('arcabooksMobileDrawer'); if (!menu || !close || !overlay || !drawer) return; function openMenu() { root.classList.add('mobile-menu-open'); menu.setAttribute('aria-expanded', 'true'); drawer.setAttribute('aria-hidden', 'false') } function closeMenu() { root.classList.remove('mobile-menu-open'); menu.setAttribute('aria-expanded', 'false'); drawer.setAttribute('aria-hidden', 'true') } menu.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu); drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu)); window.addEventListener('resize', () => { if (innerWidth > 800) closeMenu() }) })();
+    </script>
+
+    <style id="arcabooks-telas-exatas">
+        /* AJUSTE FINAL — somente encaixe das telas Biblioteca e Inicial */
+        #arcabooksPage .arcabooks-device-screen {
+            top: 10.2%;
+            right: 8.2%;
+            bottom: 10.2%;
+            left: 8.2%;
+            border-radius: 7.5% / 4.2%;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #arcabooksPage .arcabooks-device-screen img {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+            margin: 0;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            border-radius: inherit;
+        }
+
+        @media (max-width: 1080px) {
+            #arcabooksPage .arcabooks-device-screen {
+                top: 10.2%;
+                right: 8.2%;
+                bottom: 10.2%;
+                left: 8.2%;
+                border-radius: 7.5% / 4.2%;
+            }
+
+            #arcabooksPage .arcabooks-device-screen img {
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                max-height: none;
+                margin: 0;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    </style>
 </body>
 
 </html>
