@@ -317,11 +317,10 @@
 
         .arcabooks-final-text h1 {
             color: #ffffff;
-            margin-top: 0;
             font-size: clamp(32px, 6vw, 72px);
             line-height: .95;
             letter-spacing: -3px;
-            margin-top: 50px;
+            margin-top: 0;
             margin-bottom: 14px
         }
 
@@ -4333,7 +4332,7 @@
        ===================================================== */
 
             .arcabooks-final-text {
-                bottom: 2vh;
+                bottom: 1vh;
                 width: min(94%, 650px);
             }
 
@@ -6200,7 +6199,7 @@
                 const phoneProgress = clamp((progress - phoneStart) / (phoneEnd - phoneStart), 0, 1);
                 const phoneEase = easeInOutCubic(phoneProgress);
 
-                const finalPhoneLift = window.innerWidth <= 1080 ? -10 : -8;
+                const finalPhoneLift = window.innerWidth <= 1080 ? -28 : -14;
                 const phoneY = lerp(115, finalPhoneLift, phoneEase);
                 const phoneScale = lerp(0.90, 1, phoneEase);
                 const phoneRotation = lerp(-5, 0, phoneEase);
