@@ -4246,36 +4246,7 @@
 
         }
 
-        /* Espaço extra no final do hero para o texto ficar ABAIXO do celular */
-        .arcabooks-hero {
-            --final-space: 320px;
-        }
 
-        #arcabooksPage .arcabooks-hero {
-            height: calc(320vh + var(--final-space));
-            padding-bottom: var(--final-space);
-            /* a área extra continua vermelha, igual ao final da animação */
-            background: linear-gradient(to bottom,
-                    #050505 calc(100% - var(--final-space)),
-                    #c60c30 calc(100% - var(--final-space)));
-        }
-
-        #arcabooksPage .arcabooks-final-text {
-            top: calc(100% - var(--final-space) + 40px);
-            bottom: auto;
-            width: min(900px, 92%);
-        }
-
-        #arcabooksPage .arcabooks-final-text h1 {
-            margin-top: 0;
-            margin-bottom: 14px;
-            font-size: clamp(30px, 5.2vw, 64px);
-            letter-spacing: -2px;
-        }
-
-        #arcabooksPage .arcabooks-final-text p {
-            margin: 0;
-        }
 
 
 
@@ -4299,24 +4270,6 @@
             /* =====================================================
        HERO / ABERTURA
        ===================================================== */
-
-            .arcabooks-hero {
-                --final-space: 260px;
-            }
-
-            #arcabooksPage .arcabooks-hero {
-                height: calc(270vh + var(--final-space));
-            }
-
-            #arcabooksPage .arcabooks-final-text h1 {
-                font-size: clamp(30px, 9vw, 56px);
-                margin-top: 0;
-                margin-bottom: 8px;
-            }
-
-            #arcabooksPage .arcabooks-final-text p {
-                margin: 0;
-            }
 
             .arcabooks-hero {
                 height: 270vh;
@@ -5316,8 +5269,6 @@
             object-fit: contain;
         }
     </style>
-
-
     <style id="arca-mobile-temas-sequencial">
         /* =========================================================
    MENU DE LEITURA — MOBILE
@@ -5326,6 +5277,54 @@
    Claro | Escuro
    Sépia | Contraste
    ========================================================= */
+    </style>
+    <style>
+        /* Espaço extra no final do hero: o texto fica aqui, ABAIXO do celular */
+        #arcabooksPage .arcabooks-hero {
+            --final-space: 210px;
+            height: calc(320vh + var(--final-space)) !important;
+            padding-bottom: var(--final-space) !important;
+            background: linear-gradient(to bottom,
+                    #050505 calc(100% - var(--final-space)),
+                    #c60c30 calc(100% - var(--final-space))) !important;
+        }
+
+        #arcabooksPage .arcabooks-final-text {
+            position: absolute !important;
+            top: auto !important;
+            bottom: 200px !important;
+            left: 50% !important;
+            width: min(900px, 92%) !important;
+        }
+
+        #arcabooksPage .arcabooks-final-text h1 {
+            margin: 0 0 12px 0 !important;
+            font-size: clamp(30px, 5.2vw, 64px) !important;
+            letter-spacing: -2px !important;
+        }
+
+        #arcabooksPage .arcabooks-final-text p {
+            margin: 0 !important;
+        }
+
+        @media (max-width: 1080px) {
+            #arcabooksPage .arcabooks-hero {
+                --final-space: 260px;
+                height: calc(270vh + var(--final-space)) !important;
+            }
+
+            #arcabooksPage .arcabooks-final-text {
+                bottom: 40px !important;
+                width: min(94%, 650px) !important;
+            }
+
+            #arcabooksPage .arcabooks-final-text h1 {
+                margin: 0 0 8px 0 !important;
+                /* anula o -250px antigo */
+                font-size: clamp(30px, 9vw, 56px) !important;
+                letter-spacing: -1.5px !important;
+            }
+        }
     </style>
 
 </head>
