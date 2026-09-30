@@ -4332,7 +4332,7 @@
        ===================================================== */
 
             .arcabooks-final-text {
-                bottom: 1vh;
+                bottom: 2.5vh;
                 width: min(94%, 650px);
             }
 
@@ -6199,7 +6199,7 @@
                 const phoneProgress = clamp((progress - phoneStart) / (phoneEnd - phoneStart), 0, 1);
                 const phoneEase = easeInOutCubic(phoneProgress);
 
-                const finalPhoneLift = window.innerWidth <= 1080 ? -28 : -14;
+                const finalPhoneLift = window.innerWidth <= 1080 ? -18 : -8;
                 const phoneY = lerp(115, finalPhoneLift, phoneEase);
                 const phoneScale = lerp(0.90, 1, phoneEase);
                 const phoneRotation = lerp(-5, 0, phoneEase);
@@ -6213,6 +6213,12 @@
                 ================================================= */
 
                 const target = getAppTarget();
+
+                /* O alvo da logo acompanha exatamente o celular.
+                   Assim, ao subir o celular para abrir espaço ao texto,
+                   a logo continua encaixada no mesmo app da Biblioteca. */
+                target.y += phoneY * window.innerHeight / 100;
+
                 const baseLogoWidth = Math.max(1, logo.offsetWidth);
                 const logoTop = parseFloat(getComputedStyle(logo).top) || 0;
 
@@ -6347,7 +6353,7 @@
 
                 finalText.style.opacity = textEase;
                 finalText.style.color = `rgb(${gray}, ${gray}, ${gray})`;
-                finalText.style.transform = `translateX(-50%) translateY(${lerp(35, 0, textEase) - -30}px)`;
+                finalText.style.transform = `translateX(-50%) translateY(${lerp(30, 0, textEase)}px)`;
 
                 /*
                  * GRADIENTE DE "PROPÓSITO"
