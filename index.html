@@ -4246,6 +4246,37 @@
 
         }
 
+        /* Espaço extra no final do hero para o texto ficar ABAIXO do celular */
+        .arcabooks-hero {
+            --final-space: 320px;
+        }
+
+        #arcabooksPage .arcabooks-hero {
+            height: calc(320vh + var(--final-space));
+            padding-bottom: var(--final-space);
+            /* a área extra continua vermelha, igual ao final da animação */
+            background: linear-gradient(to bottom,
+                    #050505 calc(100% - var(--final-space)),
+                    #c60c30 calc(100% - var(--final-space)));
+        }
+
+        #arcabooksPage .arcabooks-final-text {
+            top: calc(100% - var(--final-space) + 40px);
+            bottom: auto;
+            width: min(900px, 92%);
+        }
+
+        #arcabooksPage .arcabooks-final-text h1 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: clamp(30px, 5.2vw, 64px);
+            letter-spacing: -2px;
+        }
+
+        #arcabooksPage .arcabooks-final-text p {
+            margin: 0;
+        }
+
 
 
 
@@ -4268,6 +4299,24 @@
             /* =====================================================
        HERO / ABERTURA
        ===================================================== */
+
+            .arcabooks-hero {
+                --final-space: 260px;
+            }
+
+            #arcabooksPage .arcabooks-hero {
+                height: calc(270vh + var(--final-space));
+            }
+
+            #arcabooksPage .arcabooks-final-text h1 {
+                font-size: clamp(30px, 9vw, 56px);
+                margin-top: 0;
+                margin-bottom: 8px;
+            }
+
+            #arcabooksPage .arcabooks-final-text p {
+                margin: 0;
+            }
 
             .arcabooks-hero {
                 height: 270vh;
@@ -5444,11 +5493,11 @@
                 <div class="arcabooks-logo-transition" id="arcabooksLogoTransition">
                     <img src="https://github.com/user-attachments/assets/6491b76c-fcf4-4253-96aa-83b19933a842" alt="">
                 </div>
+            </div>
 
-                <div class="arcabooks-final-text" id="arcabooksFinalText">
-                    <h1>Leitura&<span class="gradiente-texto">Propósito</span><br>na palma da mão.</h1>
-                    <p>Tenha acesso aos livros da Arca Center onde estiver.</p>
-                </div>
+            <div class="arcabooks-final-text" id="arcabooksFinalText">
+                <h1>Leitura&<span class="gradiente-texto">Propósito</span><br>na palma da mão.</h1>
+                <p>Tenha acesso aos livros da Arca Center onde estiver.</p>
             </div>
         </section>
 
@@ -6172,8 +6221,8 @@
             function updateAnimation() {
 
                 const heroRect = hero.getBoundingClientRect();
-                const maxScroll = hero.offsetHeight - window.innerHeight;
-
+                const finalSpace = parseFloat(getComputedStyle(hero).paddingBottom) || 0;
+                const maxScroll = hero.offsetHeight - finalSpace - window.innerHeight;
                 let progress = clamp(-heroRect.top / maxScroll, 0, 1);
 
                 /* ABERTURA — TRÊS CELULARES */
