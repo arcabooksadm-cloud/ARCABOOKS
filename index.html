@@ -339,6 +339,10 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
 
+            animation: none;
+        }
+
+        .gradiente-texto.is-gradient-visible {
             animation: brilhoTexto 12s ease-in-out 1 forwards;
         }
 
@@ -367,6 +371,14 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
 
+            animation: none;
+        }
+
+        .gradiente-textob.is-gradient-visible {
+            animation: brilhoTexto 15s ease-in-out 1 forwards;
+        }
+
+        .gradiente-textoa.is-gradient-visible {
             animation: brilhoTexto 15s ease-in-out 1 forwards;
         }
 
@@ -379,6 +391,35 @@
                 background-position: -100% 50%;
             }
         }
+
+        .gradiente-textoa {
+            background: linear-gradient(110deg,
+                    #ffffff 0%,
+                    #ffffff 35%,
+                    #000000 50%,
+                    #000000 65%,
+                    #343333 100%);
+
+            background-size: 300% 100%;
+            background-position: 200% 50%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            animation: brilhoTexto 15s ease-in-out 1 forwards;
+        }
+
+        @keyframes brilhoTexto {
+            0% {
+                background-position: 200% 50%;
+            }
+
+            100% {
+                background-position: -100% 50%;
+            }
+        }
+
 
 
 
@@ -766,7 +807,7 @@
 
         #arcabooksPage .arcabooks-feature p {
             margin-top: 22px;
-            color: #686868;
+            color: #ffffff;
             font-size: 17px;
             line-height: 1.65
         }
@@ -831,15 +872,15 @@
 
         #arcabooksPage .arcabooks-device-stage {
             position: relative;
-            min-height: 84vh;
+            min-height: 64vh;
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
             align-items: center;
-            column-gap: clamp(70px, 9vw, 150px);
-            padding: 0 clamp(40px, 5vw, 80px);
+            column-gap: clamp(45px, 6vw, 90px);
+            padding: 42px clamp(40px, 5vw, 80px);
             overflow: hidden;
             background: #f7f7f7;
             perspective: 1500px
@@ -1053,7 +1094,50 @@
         #arcabooksPage .arcabooks-functions {
             width: min(1180px, 90%);
             margin: 0 auto;
-            padding: 9vh 0
+            padding: 5vh 0 7vh;
+            opacity: 0;
+            transform: translateY(55px);
+            transition: opacity .85s cubic-bezier(.2, .7, .2, 1),
+                transform .95s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        #arcabooksPage .arcabooks-functions.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #arcabooksPage .arcabooks-functions .arcabooks-section-heading {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .7s ease .05s, transform .8s cubic-bezier(.2, .7, .2, 1) .05s;
+        }
+
+        #arcabooksPage .arcabooks-functions.is-visible .arcabooks-section-heading {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #arcabooksPage .arcabooks-functions .arcabooks-function-card {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .65s ease, transform .75s cubic-bezier(.2, .7, .2, 1), background .4s ease;
+        }
+
+        #arcabooksPage .arcabooks-functions.is-visible .arcabooks-function-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #arcabooksPage .arcabooks-functions.is-visible .arcabooks-function-card:nth-child(1) {
+            transition-delay: .12s;
+        }
+
+        #arcabooksPage .arcabooks-functions.is-visible .arcabooks-function-card:nth-child(2) {
+            transition-delay: .22s;
+        }
+
+        #arcabooksPage .arcabooks-functions.is-visible .arcabooks-function-card:nth-child(3) {
+            transition-delay: .32s;
         }
 
         #arcabooksPage .arcabooks-function-grid {
@@ -1090,6 +1174,7 @@
 
         #arcabooksPage .arcabooks-function-card h4 {
             font-size: 24px;
+            color: #000000;
             letter-spacing: -.025em
         }
 
@@ -1101,10 +1186,10 @@
         }
 
         #arcabooksPage .arcabooks-end {
-            min-height: 78vh;
+            min-height: 64vh;
             display: grid;
             place-items: center;
-            padding: 12vh 7vw;
+            padding: 8vh 7vw;
             text-align: center;
             background: #050505;
             color: #fff
@@ -1309,6 +1394,11 @@
             animation-delay: 1.9s
         }
 
+        /* =========================================================
+           REDUÇÃO DE MOVIMENTO
+           ========================================================= */
+
+
         /* MENU MOBILE */
         #arcabooksPage .arcabooks-mobile-menu {
             display: none;
@@ -1444,7 +1534,7 @@
 
             background:
                 radial-gradient(circle at 50% 45%,
-                    rgba(198, 12, 48, .18),
+                    #c60c302e,
                     transparent 60%);
         }
 
@@ -1509,7 +1599,7 @@
         #arcabooksPage .arca-slides-section {
             position: relative;
             width: 100%;
-            padding: 120px 0 100px;
+            padding: 82px 0 72px;
             background: #000;
             overflow: hidden;
         }
@@ -1552,8 +1642,9 @@
 
             width: max-content;
 
+            /* O primeiro card começa centralizado na tela. */
             padding:
-                0 max(5vw, calc((100vw - 1180px) / 2));
+                0 max(24px, calc((100vw - 620px) / 2));
         }
 
 
@@ -1564,10 +1655,12 @@
         #arcabooksPage .arca-slide {
             position: relative;
 
-            flex: 0 0 520px;
+            flex: 0 0 1000px;
 
-            width: 520px;
-            height: 330px;
+            width: 1000px;
+            max-width: 1000px;
+            aspect-ratio: 16 / 9;
+            height: auto;
 
             overflow: hidden;
 
@@ -1588,6 +1681,7 @@
    IMAGEM
    ========================================================= */
 
+        #arcabooksPage .arca-slide picture,
         #arcabooksPage .arca-slide-bg {
             position: absolute;
 
@@ -1598,13 +1692,25 @@
 
             display: block;
 
+            z-index: 1;
+        }
+
+        #arcabooksPage .arca-slide-bg {
             object-fit: cover;
             object-position: center;
 
-            z-index: 1;
-
             transition:
                 transform .8s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        /* A arte já vem no formato correto para cada dispositivo.
+           O navegador troca automaticamente entre desktop e celular. */
+        #arcabooksPage .arca-slide picture img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
         }
 
 
@@ -2026,6 +2132,8 @@
         }
 
 
+
+
         /* ---------------------------------------------------------
    BOTÃO DO +
    --------------------------------------------------------- */
@@ -2046,7 +2154,7 @@
             border: 1.5px solid rgba(255, 255, 255, .95);
             border-radius: 50%;
 
-            background: transparent;
+            background: #c60c30;
             color: #fff;
 
             cursor: pointer;
@@ -2721,9 +2829,6 @@
 
             background: #ededed;
 
-            box-shadow:
-                0 25px 65px rgba(0, 0, 0, .08);
-
             transition:
                 transform .7s cubic-bezier(.22, 1, .36, 1);
         }
@@ -3178,7 +3283,7 @@
         #arcabooksPage .arca-accessibility-section {
             width: 100%;
 
-            background: #111111;
+            background: #fafafa;
 
             overflow: hidden;
         }
@@ -3210,7 +3315,7 @@
         #arcabooksPage .arca-accessibility-inner h2 {
             margin: 0;
 
-            color: #ffffff;
+            color: #000000;
 
             font-size: clamp(40px, 6vw, 76px);
 
@@ -3218,6 +3323,8 @@
 
             letter-spacing: -.06em;
         }
+
+
 
 
         /* =========================================================
@@ -3231,305 +3338,18 @@
             display: block;
 
             width: min(580px, 100%);
+            font-weight: 800;
 
             margin: 24px auto 0;
 
-            color: rgba(255, 255, 255, .58);
+            color: #000000;
 
-            font-size: 15px;
+            font-size: 20px;
 
             line-height: 1.6;
         }
 
 
-        /* =========================================================
-   VISUAL DA ACESSIBILIDADE
-   ========================================================= */
-
-        #arcabooksPage .arca-accessibility-visual {
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-height: 300px;
-
-            margin-top: 55px;
-
-            gap: 35px;
-        }
-
-
-        /* =========================================================
-   CONTAINER DO BONECO
-   ========================================================= */
-
-        #arcabooksPage .arca-accessibility-person {
-            position: relative;
-
-            width: 170px;
-            height: 210px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 12px;
-
-            border: 1px solid transparent;
-
-            border-radius: 90px;
-
-            background:
-                linear-gradient(#111111, #111111) padding-box,
-                linear-gradient(120deg,
-                    #c60c30,
-                    #f5b60b,
-                    #7b2cff,
-                    #c60c30) border-box;
-
-            background-size:
-                100% 100%,
-                300% 300%;
-
-            animation:
-                arcaAccessibilityBorder 5s linear infinite;
-
-            box-sizing: border-box;
-        }
-
-
-        /* =========================================================
-   CABEÇA
-   ========================================================= */
-
-        #arcabooksPage .arca-person-head {
-            position: relative;
-
-            width: 48px;
-            height: 48px;
-
-            flex: 0 0 48px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(110deg,
-                    #c60c30,
-                    #f5b60b,
-                    #7b2cff,
-                    #c60c30);
-
-            background-size: 300% 100%;
-
-            animation:
-                arcaAccessibilityGradient 3s ease-in-out infinite;
-        }
-
-
-        /* =========================================================
-   CORPO
-   SEM BRAÇOS
-   SEM PERNAS
-   ========================================================= */
-
-        #arcabooksPage .arca-person-body {
-            position: relative;
-
-            width: 68px;
-            height: 92px;
-
-            flex: 0 0 92px;
-
-            border-radius:
-                38px 38px 22px 22px;
-
-            background:
-                linear-gradient(110deg,
-                    #c60c30,
-                    #f5b60b,
-                    #7b2cff,
-                    #c60c30);
-
-            background-size: 300% 100%;
-
-            animation:
-                arcaAccessibilityGradient 3s ease-in-out infinite;
-        }
-
-
-        /*
-   Caso os elementos antigos de braços/pernas
-   ainda existam no HTML, eles ficam invisíveis.
-*/
-
-        #arcabooksPage .arca-person-arm,
-        #arcabooksPage .arca-person-arm-left,
-        #arcabooksPage .arca-person-arm-right,
-        #arcabooksPage .arca-person-leg,
-        #arcabooksPage .arca-person-leg-left,
-        #arcabooksPage .arca-person-leg-right {
-            display: none !important;
-        }
-
-
-        /* =========================================================
-   ESPECTRO DE VOZ
-   ========================================================= */
-
-        #arcabooksPage .arca-voice-wave {
-            position: relative;
-
-            width: 145px;
-            height: 210px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 7px;
-
-            margin-left: 0;
-
-            border: 1px solid transparent;
-
-            border-radius: 90px;
-
-            background:
-                linear-gradient(#111111, #111111) padding-box,
-                linear-gradient(120deg,
-                    #c60c30,
-                    #f5b60b,
-                    #7b2cff,
-                    #c60c30) border-box;
-
-            background-size:
-                100% 100%,
-                300% 300%;
-
-            animation:
-                arcaAccessibilityBorder 5s linear infinite;
-
-            box-sizing: border-box;
-        }
-
-        #arcabooksPage .arca-voice-wave span {
-            display: block;
-
-            width: 5px;
-
-            min-height: 15px;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(180deg,
-                    #c60c30,
-                    #f5b60b,
-                    #7b2cff);
-
-            background-size: 100% 250%;
-
-            animation:
-                arcaVoiceWave 1s ease-in-out infinite alternate,
-                arcaAccessibilityGradient 3s ease-in-out infinite;
-        }
-
-        #arcabooksPage .arca-voice-wave span:nth-child(1) {
-            height: 24px;
-            animation-delay: -.4s;
-        }
-
-        #arcabooksPage .arca-voice-wave span:nth-child(2) {
-            height: 48px;
-            animation-delay: -.2s;
-        }
-
-        #arcabooksPage .arca-voice-wave span:nth-child(3) {
-            height: 78px;
-            animation-delay: 0s;
-        }
-
-        #arcabooksPage .arca-voice-wave span:nth-child(4) {
-            height: 48px;
-            animation-delay: -.2s;
-        }
-
-        #arcabooksPage .arca-voice-wave span:nth-child(5) {
-            height: 24px;
-            animation-delay: -.4s;
-        }
-
-
-        /* =========================================================
-   ANIMAÇÃO DO ESPECTRO
-   ========================================================= */
-
-        @keyframes arcaVoiceWave {
-
-            from {
-                transform: scaleY(.55);
-            }
-
-            to {
-                transform: scaleY(1);
-            }
-
-        }
-
-
-        /* =========================================================
-   GRADIENTE DO BONECO / ESPECTRO
-   ========================================================= */
-
-        @keyframes arcaAccessibilityGradient {
-
-            0% {
-                background-position: 100% 50%;
-            }
-
-            50% {
-                background-position: 0% 50%;
-            }
-
-            100% {
-                background-position: 100% 50%;
-            }
-
-        }
-
-
-        /* =========================================================
-   GRADIENTE DAS BORDAS
-   ========================================================= */
-
-        @keyframes arcaAccessibilityBorder {
-
-            0% {
-                background-position:
-                    0 0,
-                    0% 50%;
-            }
-
-            50% {
-                background-position:
-                    0 0,
-                    100% 50%;
-            }
-
-            100% {
-                background-position:
-                    0 0,
-                    0% 50%;
-            }
-
-        }
 
         /* =========================================================
    FUNDO VERMELHO — BIBLIOTECA
@@ -3563,31 +3383,642 @@
 
         #arcabooksPage .arca-slides-section {
             padding:
-                70px 0 70px;
+                58px 0 58px;
         }
 
 
         #arcabooksPage .arca-slides-track {
             gap: 14px;
 
+            /* Mantém o primeiro card centralizado também no celular. */
             padding:
-                0 20px;
+                0 max(20px, calc((100vw - 88vw) / 2));
         }
 
 
         #arcabooksPage .arca-slide {
-            flex: 0 0 82vw;
+            flex: 0 0 88vw;
 
-            width: 82vw;
+            width: 88vw;
 
-            height: 52vw;
+            /* Card propositalmente mais largo, não quadrado/vertical. */
+            aspect-ratio: 16 / 9;
+            height: auto;
 
-            min-height: 220px;
-
-            max-height: 420px;
+            min-height: 0;
+            max-height: none;
 
             border-radius: 22px;
         }
+
+        /* No celular, a arte usada é a versão vertical 4:5. */
+        #arcabooksPage .arca-slide picture,
+        #arcabooksPage .arca-slide picture img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* =========================================================
+   ARCA BOOKS
+   FLOATING DEMO — NOVO E ISOLADO
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            width: 32px;
+            height: 32px;
+
+            margin-top: 40px;
+
+            z-index: 20;
+        }
+
+
+        /* =========================================================
+   CONTAINER
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-wrapper {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: 20px auto 0;
+
+            position: relative;
+        }
+
+
+        /* =========================================================
+   BOTÃO DO +
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-trigger {
+
+            position: relative;
+
+            flex: 0 0 32px;
+
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0;
+            padding: 0;
+
+            border: 1.5px solid currentColor;
+
+            border-radius: 50%;
+
+            background: transparent;
+
+            color: #171717;
+
+            cursor: pointer;
+
+            z-index: 3;
+
+            box-sizing: border-box;
+
+            appearance: none;
+            -webkit-appearance: none;
+
+            outline: none;
+
+            box-shadow: none;
+
+            transition:
+                border-color .35s ease,
+                background .35s ease,
+                transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        /* =========================================================
+   ÍCONE +
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-plus {
+
+            display: block;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 20px;
+
+            font-weight: 300;
+
+            line-height: 1;
+
+            color: currentColor;
+
+            transform:
+                translateY(-1px) rotate(0deg);
+
+            transition:
+                transform .65s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        /* =========================================================
+   BOLHA
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-bubble {
+
+            position: absolute;
+
+            /*
+     * Pequeno deslocamento da bolha
+     * sem deslocar o botão +
+     */
+            left: 6px;
+
+            top: 50%;
+
+            width: 32px;
+            height: 32px;
+
+            transform:
+                translateY(-50%) scaleX(.1);
+
+            transform-origin: left center;
+
+            border-radius: 999px;
+
+            /*
+     * CINZA
+     */
+            background: #101012;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            box-sizing: border-box;
+
+            transition:
+                width .75s cubic-bezier(.22, 1, .36, 1),
+                height .75s cubic-bezier(.22, 1, .36, 1),
+                transform .75s cubic-bezier(.22, 1, .36, 1),
+                opacity .25s ease;
+        }
+
+
+        /* =========================================================
+   X / FECHAR
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-close {
+
+            position: relative;
+
+            flex: 0 0 54px;
+
+            width: 54px;
+            height: 54px;
+
+            min-width: 54px;
+            min-height: 54px;
+
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 0;
+
+            background: transparent;
+
+            color: #ffffff;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 21px;
+
+            font-weight: 300;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            transform:
+                rotate(-45deg) scale(.5);
+
+            appearance: none;
+            -webkit-appearance: none;
+
+            outline: none;
+
+            box-sizing: border-box;
+
+            z-index: 25;
+
+            transition:
+                opacity .3s ease .35s,
+                transform .5s cubic-bezier(.22, 1, .36, 1) .35s;
+        }
+
+
+        /* =========================================================
+   TEXTO
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-text {
+
+            position: absolute;
+
+            left: 54px;
+
+            top: 50%;
+
+            width: max-content;
+
+            max-width: 280px;
+
+            transform:
+                translateY(-50%) translateX(-18px);
+
+            color: #f5f5f7;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 17px;
+
+            font-weight: 500;
+
+            line-height: 1.2;
+
+            letter-spacing: -.02em;
+
+            white-space: nowrap;
+
+            opacity: 0;
+
+            transition:
+                opacity .45s ease .25s,
+                transform .65s cubic-bezier(.22, 1, .36, 1) .25s;
+        }
+
+
+        /* =========================================================
+   ESTADO ABERTO
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-open {
+
+            width: 310px;
+        }
+
+
+        /* =========================================================
+   BOLHA ABERTA
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-open .arca-floating-demo-bubble {
+
+            width: 300px;
+
+            height: 54px;
+
+            transform:
+                translateY(-50%) scaleX(1);
+
+            opacity: 1;
+
+            pointer-events: auto;
+        }
+
+
+        /* =========================================================
+   TEXTO ENTRANDO
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-open .arca-floating-demo-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(-50%) translateX(0);
+        }
+
+
+        /* =========================================================
+   + VIRA ×
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-open .arca-floating-demo-plus {
+
+            transform:
+                translateY(-1px) rotate(135deg);
+        }
+
+
+        /* =========================================================
+   BOTÃO FICA SOBRE A BOLHA
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-open .arca-floating-demo-trigger {
+
+            background: #101012;
+
+            border-color: rgba(255, 255, 255, .9);
+
+            color: #ffffff;
+        }
+
+
+        /* =========================================================
+   X APARECE
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-open .arca-floating-demo-close {
+
+            opacity: 1;
+
+            transform:
+                rotate(0deg) scale(1);
+        }
+
+
+        /* =========================================================
+   ENTRADA SUAVE PELO SCROLL
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-visible .arca-floating-demo-trigger {
+
+            animation:
+                arcaFloatingDemoPlusIn .7s cubic-bezier(.22, 1, .36, 1) forwards;
+        }
+
+
+        @keyframes arcaFloatingDemoPlusIn {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(.65) rotate(-90deg);
+            }
+
+            60% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.05) rotate(8deg);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1) rotate(0deg);
+            }
+        }
+
+
+        /* =========================================================
+   ABERTURA AUTOMÁTICA QUANDO VISÍVEL
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-visible .arca-floating-demo-bubble {
+
+            width: 300px;
+
+            height: 54px;
+
+            transform:
+                translateY(-50%) scaleX(1);
+
+            opacity: 1;
+
+            transition-delay: .2s;
+        }
+
+
+        #arcabooksPage .arca-floating-demo-new.is-visible .arca-floating-demo-text {
+
+            opacity: 1;
+
+            transform:
+                translateY(-50%) translateX(0);
+
+            transition-delay: .45s;
+        }
+
+
+        #arcabooksPage .arca-floating-demo-new.is-visible .arca-floating-demo-plus {
+
+            transform:
+                translateY(-1px) rotate(135deg);
+
+            transition-delay: .15s;
+        }
+
+
+        #arcabooksPage .arca-floating-demo-new.is-visible .arca-floating-demo-trigger {
+
+            background: #5f6064;
+
+            border-color: rgba(255, 255, 255, .9);
+
+            color: #ffffff;
+        }
+
+
+        /* =========================================================
+   X QUANDO ESTÁ VISÍVEL
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-visible .arca-floating-demo-close {
+
+            opacity: 1;
+
+            transform:
+                rotate(0deg) scale(1);
+        }
+
+
+        /* =========================================================
+   QUANDO ESTÁ SAINDO DA TELA
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-new.is-closing .arca-floating-demo-bubble {
+
+            width: 32px;
+
+            height: 32px;
+
+            transform:
+                translateY(-50%) scaleX(.1);
+
+            opacity: 0;
+
+            transition:
+                width .55s cubic-bezier(.22, 1, .36, 1),
+                height .55s cubic-bezier(.22, 1, .36, 1),
+                transform .55s cubic-bezier(.22, 1, .36, 1),
+                opacity .25s ease;
+        }
+
+
+        #arcabooksPage .arca-floating-demo-new.is-closing .arca-floating-demo-text {
+
+            opacity: 0;
+
+            transform:
+                translateY(-50%) translateX(-18px);
+
+            transition:
+                opacity .2s ease,
+                transform .4s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        #arcabooksPage .arca-floating-demo-new.is-closing .arca-floating-demo-plus {
+
+            transform:
+                translateY(-1px) rotate(0deg);
+
+            transition:
+                transform .5s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        #arcabooksPage .arca-floating-demo-new.is-closing .arca-floating-demo-close {
+
+            opacity: 0;
+
+            transform:
+                rotate(-45deg) scale(.5);
+
+            transition:
+                opacity .2s ease,
+                transform .4s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        /* =========================================================
+   TEMA ESCURO
+========================================================= */
+
+        #arcabooksPage .arca-reading-section.is-dark-theme .arca-floating-demo-trigger {
+
+            color: #ffffff;
+        }
+
+
+        /* =========================================================
+   HOVER
+========================================================= */
+
+        #arcabooksPage .arca-floating-demo-trigger:hover {
+
+            transform: scale(1.04);
+        }
+
+        /* =========================================================
+   EFEITO DE LUZ — ONDAS COLORIDAS
+========================================================= */
+
+        #arcabooksPage .arca-accessibility-inner {
+            position: relative;
+            isolation: isolate;
+        }
+
+        #arcabooksPage .arca-accessibility-glow {
+            position: absolute;
+
+            left: 50%;
+            top: 64%;
+
+            width: 900px;
+            height: 650px;
+
+            transform: translate(-50%, -50%) scale(.35);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: -1;
+
+            opacity: 0;
+
+            filter: blur(85px);
+
+            background:
+                radial-gradient(circle at 50% 50%,
+                    rgba(255, 30, 70, .95) 0%,
+                    rgba(255, 30, 70, .65) 14%,
+                    transparent 38%),
+                radial-gradient(circle at 25% 65%,
+                    rgba(255, 170, 0, .8) 0%,
+                    transparent 42%),
+                radial-gradient(circle at 75% 35%,
+                    rgba(255, 0, 100, .75) 0%,
+                    transparent 42%),
+                radial-gradient(circle at 65% 75%,
+                    rgba(255, 210, 30, .65) 0%,
+                    transparent 40%);
+
+            will-change: transform, filter, opacity;
+        }
+
+
+        /* =========================================================
+   ONDA DE LUZ
+========================================================= */
+
+        @keyframes arcaAccessibilityGlow {
+
+            from {
+                transform:
+                    translate(-50%, -50%) scale(.35);
+
+                filter: blur(85px);
+            }
+
+            to {
+                transform:
+                    translate(-50%, -50%) scale(2.2);
+
+                filter: blur(130px);
+            }
+
+        }
+
+
+
 
 
 
@@ -3595,7 +4026,14 @@
    RESPONSIVO
    ========================================================= */
 
-        @media (max-width:1080px) {
+
+
+
+        /* =========================================================
+           RESPONSIVO — ATÉ 1080PX
+           ========================================================= */
+        @media (max-width: 1080px) {
+
 
             /* =====================================================
        HERO / ABERTURA
@@ -3790,7 +4228,7 @@
                 width: 100%;
                 max-width: none;
                 margin: 0;
-                padding: 90px 20px 80px;
+                padding: 62px 20px 58px;
                 display: flex;
                 flex-direction: column;
                 column-gap: 0;
@@ -3802,7 +4240,7 @@
             #arcabooksPage .arcabooks-device-stage--right .arcabooks-device-copy {
                 position: relative;
                 inset: auto;
-                width: min(520px, 100%);
+                width: 100%;
                 transform: none;
                 margin-bottom: 48px;
                 text-align: center;
@@ -4260,6 +4698,7 @@
 
             #arcabooksPage .arca-reading-controls {
                 width: 100%;
+                padding: 0px 40px 0px 40px;
                 margin-top: 50px;
             }
 
@@ -4394,150 +4833,174 @@
                 min-height: 260px;
             }
 
-            #arcabooksPage .arca-accessibility-person {
-                width: 105px;
-                height: 180px;
-            }
-
-            #arcabooksPage .arca-person-head {
-                width: 48px;
-                height: 48px;
-                top: 18px;
-            }
-
-            #arcabooksPage .arca-person-body {
-                width: 82px;
-                height: 112px;
-                bottom: 14px;
-                border-radius: 42px 42px 24px 24px;
-            }
-
-            #arcabooksPage .arca-person-arm,
-            #arcabooksPage .arca-person-leg,
-            #arcabooksPage .arca-person-arm-left,
-            #arcabooksPage .arca-person-arm-right,
-            #arcabooksPage .arca-person-leg-left,
-            #arcabooksPage .arca-person-leg-right {
-                display: none;
-            }
-
-            #arcabooksPage .arca-voice-wave {
-                width: min(280px, 72vw);
-                height: 58px;
-                gap: 5px;
-                margin-top: 26px;
-            }
-
-            #arcabooksPage .arca-voice-wave span {
-                width: 5px;
-                border-radius: 999px;
-            }
-
             #arcabooksPage .arca-accessibility-inner::after {
                 max-width: 480px;
                 margin: 26px auto 0;
                 font-size: 13px;
                 line-height: 1.55;
             }
+
+            #arcabooksPage .arca-accessibility-image {
+                width: min(100%, 760px);
+                margin-top: 38px;
+            }
+
+            #arcabooksPage .arca-theme-animation {
+                position: relative !important;
+                display: block !important;
+                width: 100% !important;
+                min-height: 90px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                overflow: visible !important;
+            }
+
+            /* Durante a animação, os modos ficam todos exatamente no centro. */
+            #arcabooksPage .arca-theme-animation .arca-theme-bubble {
+                position: absolute !important;
+                left: 50% !important;
+                top: 50% !important;
+                width: 170px !important;
+                min-width: 170px !important;
+                height: 58px !important;
+                margin: 0 !important;
+                flex: none !important;
+                opacity: 0 !important;
+                transform: translate(-50%, -50%) scale(.78) !important;
+                filter: blur(.2px) !important;
+                transition:
+                    opacity .65s ease,
+                    transform .85s cubic-bezier(.16, 1, .3, 1),
+                    box-shadow .85s ease,
+                    filter .65s ease !important;
+            }
+
+            /* O modo atual surge no centro. */
+            #arcabooksPage .arca-theme-animation .arca-theme-bubble.is-active {
+                opacity: 1 !important;
+                transform: translate(-50%, -50%) scale(1.06) !important;
+                filter: blur(0) !important;
+                z-index: 5 !important;
+            }
+
+            /* O modo anterior desaparece descendo. */
+            #arcabooksPage .arca-theme-animation .arca-theme-bubble.is-finished {
+                opacity: 0 !important;
+                transform: translate(-50%, 55%) scale(.82) !important;
+                filter: blur(.4px) !important;
+                z-index: 1 !important;
+            }
+
+            /* =====================================================
+       FINAL — TODOS JUNTOS EM 2 x 2
+       Claro | Escuro
+       Sépia | Contraste
+       ===================================================== */
+            #arcabooksPage .arca-reading-section.is-expanded .arca-theme-animation {
+                position: relative !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                grid-template-rows: repeat(2, auto) !important;
+                align-items: center !important;
+                justify-items: center !important;
+                gap: 12px 10px !important;
+                width: min(100%, 360px) !important;
+                min-height: 125px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            #arcabooksPage .arca-reading-section.is-expanded .arca-theme-bubble {
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 170px !important;
+                height: 52px !important;
+                margin: 0 !important;
+                opacity: .95 !important;
+                transform: scale(1) !important;
+                filter: blur(0) !important;
+                z-index: 1 !important;
+            }
+
+            /* Reordena somente a apresentação final. */
+            #arcabooksPage .arca-reading-section.is-expanded .arca-theme-bubble:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            #arcabooksPage .arca-reading-section.is-expanded .arca-theme-bubble:nth-child(3) {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            #arcabooksPage .arca-reading-section.is-expanded .arca-theme-bubble:nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            #arcabooksPage .arca-reading-section.is-expanded .arca-theme-bubble:nth-child(4) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            #arcabooksPage .arca-slides-viewport {
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            #arcabooksPage .arca-slides-viewport::-webkit-scrollbar {
+                display: none;
+            }
+
+            #arcabooksPage .arca-reading-slides {
+                overflow: hidden !important;
+                touch-action: pan-y;
+            }
+
+            #arcabooksPage .arca-reading-slides-track {
+                overflow: visible !important;
+                touch-action: pan-y;
+            }
+
+            #arcabooksPage .arca-reading-slide {
+                flex: 0 0 calc(100vw - 40px) !important;
+                width: calc(100vw - 40px) !important;
+                max-width: none !important;
+            }
+
+        }
+    </style>
+    <style id="arca-acessibilidade-apenas-imagem">
+        #arcabooksPage .arca-accessibility-book,
+        #arcabooksPage .arca-accessibility-visual {
+            display: none !important;
         }
 
-         /* Respiro lateral nas barras do Menu de Leitura */
-    #arcabooksPage .arca-progress-line,
-    #arcabooksPage .arca-text-slider {
-        width: calc(100% - 16px) !important;
-        margin-left: 8px !important;
-        margin-right: 8px !important;
-    }
 
-    /* Acessibilidade: uma única borda envolvendo boneco + áudio */
-    #arcabooksPage .arca-accessibility-visual {
-        width: calc(100% - 8px) !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding: 28px 18px !important;
-        gap: 18px !important;
-        min-height: 220px !important;
-        border: 1px solid transparent !important;
-        border-radius: 32px !important;
-        background:
-            linear-gradient(#111111, #111111) padding-box,
-            linear-gradient(120deg, #c60c30, #f5b60b, #7b2cff, #c60c30) border-box !important;
-        background-size: 100% 100%, 300% 300% !important;
-        animation: arcaAccessibilityBorder 5s linear infinite !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Remove a borda individual do boneco */
-    #arcabooksPage .arca-accessibility-person {
-        width: 105px !important;
-        height: 180px !important;
-        flex: 0 0 105px !important;
-        border: 0 !important;
-        border-radius: 0 !important;
-        background: transparent !important;
-        background-size: auto !important;
-        animation: none !important;
-        gap: 8px !important;
-        justify-content: flex-start !important;
-        overflow: visible !important;
-    }
-
-    /* Cabeça e corpo voltam a formar um eixo correto */
-    #arcabooksPage .arca-person-head {
-        position: relative !important;
-        top: auto !important;
-        bottom: auto !important;
-        margin: 0 auto !important;
-        width: 48px !important;
-        height: 48px !important;
-        flex: 0 0 48px !important;
-    }
-
-    #arcabooksPage .arca-person-body {
-        position: relative !important;
-        top: auto !important;
-        bottom: auto !important;
-        margin: 0 auto !important;
-        width: 82px !important;
-        height: 112px !important;
-        flex: 0 0 112px !important;
-    }
-
-    /* Braços/pernas acompanham o corpo, sem alterar a posição da cabeça */
-    #arcabooksPage .arca-person-arm,
-    #arcabooksPage .arca-person-leg {
-        position: absolute !important;
-    }
-
-    #arcabooksPage .arca-voice-wave {
-        flex: 1 1 auto !important;
-        min-width: 0 !important;
-        width: auto !important;
-    }
+        #arcabooksPage .arca-accessibility-image {
+            display: block;
+            width: min(100%, 900px);
+            height: auto;
+            margin: 48px auto 0;
+            object-fit: contain;
+        }
     </style>
 
 
-<style id="arca-acessibilidade-apenas-imagem">
-    #arcabooksPage .arca-accessibility-book,
-    #arcabooksPage .arca-accessibility-visual {
-        display: none !important;
-    }
-
-    #arcabooksPage .arca-accessibility-image {
-        display: block;
-        width: min(100%, 900px);
-        height: auto;
-        margin: 48px auto 0;
-        object-fit: contain;
-    }
-
-    @media (max-width: 1080px) {
-        #arcabooksPage .arca-accessibility-image {
-            width: min(100%, 760px);
-            margin-top: 38px;
-        }
-    }
-</style>
+    <style id="arca-mobile-temas-sequencial">
+        /* =========================================================
+   MENU DE LEITURA — MOBILE
+   Cada modo aparece sozinho no centro e sai para baixo.
+   Ao finalizar: grade 2 x 2 na ordem:
+   Claro | Escuro
+   Sépia | Contraste
+   ========================================================= */
+    </style>
 
 </head>
 
@@ -4608,11 +5071,9 @@
                             alt="">
                     </div>
                     <div class="arcabooks-intro-phone arcabooks-intro-phone--3">
-                        <div class="arcabooks-intro-phone-screen"><img
-                                src="https://github.com/user-attachments/assets/823cc143-8676-42ae-a042-b08881b3f6f3"
-                                alt=""></div>
+                        <div class="arcabooks-intro-phone-screen"></div>
                         <img class="arcabooks-intro-phone-frame"
-                            src="https://github.com/user-attachments/assets/02309e24-ace3-4ad3-94dd-2e482cc329ad"
+                            src="https://github.com/user-attachments/assets/92b906da-e7a0-43fd-9da8-a25ded2fd0a6"
                             alt="">
                     </div>
                 </div>
@@ -4737,108 +5198,130 @@
                     <div class="arca-slides-track">
 
 
-                    <!-- =================================================
+                        <!-- =================================================
                  SLIDE 01
                  ================================================= -->
 
-                    <article class="arca-slide">
+                        <article class="arca-slide">
 
-                        <!-- COLOQUE A IMAGEM DO SLIDE AQUI -->
-
-
-                        <!-- POPUP -->
-
-                        <div class="arca-popup">
-
-                            <button class="arca-popup-plus" type="button" aria-label="Abrir informação"
-                                aria-expanded="false">
-                                <span class="arca-popup-icon">+</span>
-                            </button>
+                            <!--
+                                ARTE DO SLIDE 01
+                                COMPUTADOR: 1500 x 1000 px
+                                CELULAR:    1000 x 1250 px
+                            -->
+                            <picture>
+                                <source media="(max-width: 1080px)" srcset="slide-01-mobile.webp">
+                                <img class="arca-slide-bg" src="fotoo.png" alt="">
+                            </picture>
 
 
-                            <div class="arca-popup-content">
+                            <!-- POPUP -->
 
-                                <strong>Biblioteca</strong>
+                            <div class="arca-popup">
 
-                                <span>
-                                    Todos os seus livros em um só lugar.
-                                </span>
+                                <button class="arca-popup-plus" type="button" aria-label="Abrir informação"
+                                    aria-expanded="false">
+                                    <span class="arca-popup-icon">+</span>
+                                </button>
+
+
+                                <div class="arca-popup-content">
+
+                                    <strong>Biblioteca</strong>
+
+                                    <span>
+                                        Todos os seus livros em um só lugar.
+                                    </span>
+
+                                </div>
 
                             </div>
 
-                        </div>
-
-                    </article>
+                        </article>
 
 
 
-                    <!-- =================================================
+                        <!-- =================================================
                  SLIDE 02
                  ================================================= -->
 
-                    <article class="arca-slide">
+                        <article class="arca-slide">
 
-                        <!-- COLOQUE A IMAGEM DO SLIDE AQUI -->
+                            <!--
+                                ARTE DO SLIDE 02
+                                COMPUTADOR: 1500 x 1000 px
+                                CELULAR:    1000 x 1250 px
+                            -->
+                            <picture>
+                                <source media="(max-width: 1080px)" srcset="slide-02-mobile.webp">
+                                <img class="arca-slide-bg" src="slide-02-desktop.webp" alt="">
+                            </picture>
+
+                            <!-- POPUP -->
+
+                            <div class="arca-popup">
+
+                                <button class="arca-popup-plus" type="button" aria-label="Abrir informação"
+                                    aria-expanded="false">
+                                    <span class="arca-popup-icon">+</span>
+                                </button>
 
 
-                        <!-- POPUP -->
+                                <div class="arca-popup-content">
 
-                        <div class="arca-popup">
+                                    <strong>Menu de leitura</strong>
 
-                            <button class="arca-popup-plus" type="button" aria-label="Abrir informação"
-                                aria-expanded="false">
-                                <span class="arca-popup-icon">+</span>
-                            </button>
+                                    <span>
+                                        Tudo o que você precisa em um só lugar.
+                                    </span>
 
-
-                            <div class="arca-popup-content">
-
-                                <strong>Menu de leitura</strong>
-
-                                <span>
-                                    Tudo o que você precisa em um só lugar.
-                                </span>
+                                </div>
 
                             </div>
 
-                        </div>
-
-                    </article>
+                        </article>
 
 
 
-                    <!-- =================================================
+                        <!-- =================================================
                  SLIDE 03
                  ================================================= -->
 
-                    <article class="arca-slide">
+                        <article class="arca-slide">
 
-                        <!-- COLOQUE A IMAGEM DO SLIDE AQUI -->
+                            <!--
+                                ARTE DO SLIDE 03
+                                COMPUTADOR: 1500 x 1000 px
+                                CELULAR:    1000 x 1250 px
+                            -->
+                            <picture>
+                                <source media="(max-width: 1080px)" srcset="slide-03-mobile.webp">
+                                <img class="arca-slide-bg" src="slide-03-desktop.webp" alt="">
+                            </picture>
+
+                            <!-- POPUP -->
+
+                            <div class="arca-popup">
+
+                                <button class="arca-popup-plus" type="button" aria-label="Abrir informação"
+                                    aria-expanded="false">
+                                    <span class="arca-popup-icon">+</span>
+                                </button>
 
 
-                        <!-- POPUP -->
+                                <div class="arca-popup-content">
 
-                        <div class="arca-popup">
+                                    <strong>Pesquisa</strong>
 
-                            <button class="arca-popup-plus" type="button" aria-label="Abrir informação"
-                                aria-expanded="false">
-                                <span class="arca-popup-icon">+</span>
-                            </button>
+                                    <span>
+                                        Encontre palavras dentro do livro.
+                                    </span>
 
-
-                            <div class="arca-popup-content">
-
-                                <strong>Pesquisa</strong>
-
-                                <span>
-                                    Encontre palavras dentro do livro.
-                                </span>
+                                </div>
 
                             </div>
 
-                        </div>
-
-                    </article>
+                        </article>
 
 
 
@@ -5139,7 +5622,31 @@
                                 Leia no seu ritmo. Do seu jeito.
                             </p>
 
+                            <div class="arca-floating-demo-new" data-floating-demo>
+
+                                <button class="arca-floating-demo-trigger" type="button" aria-label="Abrir informação"
+                                    aria-expanded="false">
+                                    <span class="arca-floating-demo-plus">+</span>
+                                </button>
+
+                                <div class="arca-floating-demo-bubble">
+
+                                    <button class="arca-floating-demo-close" type="button"
+                                        aria-label="Fechar informação">
+
+                                    </button>
+
+                                    <span class="arca-floating-demo-text">
+                                        Arraste a barra e conheça
+                                    </span>
+
+                                </div>
+
+                            </div>
+
                         </div>
+
+
 
 
                     </div>
@@ -5163,25 +5670,30 @@
                             Sua leitura também pode ser ouvida.
                         </h2>
 
+                        <!--
+                            BRILHO DINÂMICO ATRÁS DA IMAGEM
+                            O efeito é ativado somente quando esta seção
+                            entra na área visível da tela.
+                        -->
+                        <div class="arca-accessibility-glow" aria-hidden="true"></div>
+
                         <!-- SUBSTITUA O SRC ABAIXO PELA SUA IMAGEM -->
-                        <img
-                            class="arca-accessibility-image"
-                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                            alt=""
-                        >
+                        <img class="arca-accessibility-image" src="acessi.png"">
 
                     </div>
 
                 </section>
             </article>
-            <article class="arcabooks-feature">
-                <div class="arcabooks-feature-copy">
-                    <div class="arcabooks-feature-number">03 — PESQUISA</div>
-                    <h3>E temos mais uma novidade:</h3>
-                    <p>agora você pode pesquisar palavras dentro do livro sem precisar interromper a leitura.</p>
-                </div>
-                <div class="arcabooks-feature-media"><img src="https://mcstaging.arcacenter.com/media/wysiwyg/tela3.gif"
-                        alt="Imagem da função Biblioteca"></div>
+            <article class=" arcabooks-feature">
+                        <div class="arcabooks-feature-copy">
+                            <div class="arcabooks-feature-number">03 — PESQUISA</div>
+                            <h3>E temos mais uma novidade:</h3>
+                            <p>agora você pode pesquisar palavras dentro do livro sem precisar interromper a leitura.
+                            </p>
+                        </div>
+                        <div class="arcabooks-feature-media"><img
+                                src="https://mcstaging.arcacenter.com/media/wysiwyg/tela3.gif"
+                                alt="Imagem da função Biblioteca"></div>
             </article>
         </section>
 
@@ -5716,7 +6228,7 @@
                CONFIGURAÇÕES
                ===================================================== */
 
-            const CAROUSEL_TIME = 5000;
+            const CAROUSEL_TIME = 3000;
 
             let currentSlide = 0;
 
@@ -6617,9 +7129,113 @@
         });
 
         (function () {
+
+            const root = document.getElementById("arcabooksPage");
+            if (!root) return;
+
+            /*
+             * GRADIENTES
+             * Começam somente quando cada palavra entra na viewport.
+             * Para adicionar mais palavras no futuro, basta duplicar
+             * qualquer classe gradiente-texto/gradiente-textob/gradiente-textoa.
+             */
+            const gradientWords = root.querySelectorAll(
+                '[class*="gradiente-texto"]'
+            );
+
+            if ("IntersectionObserver" in window) {
+
+                const gradientObserver = new IntersectionObserver(
+                    function (entries, observer) {
+
+                        entries.forEach(function (entry) {
+
+                            if (!entry.isIntersecting) return;
+
+                            /*
+                             * Força a animação a ser aplicada somente depois que
+                             * a palavra realmente entrou no viewport.
+                             * O reflow garante que o navegador reconheça a mudança
+                             * mesmo quando a página acabou de carregar.
+                             */
+                            const word = entry.target;
+                            word.classList.remove("is-gradient-visible");
+                            void word.offsetWidth;
+                            word.classList.add("is-gradient-visible");
+
+                            /* Cada palavra anima uma única vez. */
+                            observer.unobserve(word);
+
+                        });
+
+                    },
+                    {
+                        root: null,
+                        rootMargin: "0px",
+                        threshold: 0
+                    }
+                );
+
+                gradientWords.forEach(function (word) {
+                    gradientObserver.observe(word);
+                });
+
+            } else {
+
+                gradientWords.forEach(function (word) {
+                    word.classList.add("is-gradient-visible");
+                });
+
+            }
+
+
+            /*
+             * MAIS RECURSOS
+             * A seção e seus cards entram somente quando chegam à tela.
+             */
+            const moreResources = root.querySelector(".arcabooks-functions");
+
+            if (moreResources && "IntersectionObserver" in window) {
+
+                const resourcesObserver = new IntersectionObserver(
+                    function (entries, observer) {
+
+                        entries.forEach(function (entry) {
+
+                            if (!entry.isIntersecting) return;
+
+                            entry.target.classList.add("is-visible");
+
+                            /* Executa a entrada apenas uma vez. */
+                            observer.unobserve(entry.target);
+
+                        });
+
+                    },
+                    {
+                        root: null,
+                        rootMargin: "0px 0px -10% 0px",
+                        threshold: 0.12
+                    }
+                );
+
+                resourcesObserver.observe(moreResources);
+
+            } else if (moreResources) {
+
+                moreResources.classList.add("is-visible");
+
+            }
+
+        })();
+
+    </script>
+
+    <script>
+        (function () {
             const root = document.getElementById('arcabooksPage'); if (!root) return;
             const pageNav = root.querySelector('#arcabooksPageNav'), hero = root.querySelector('#arcabooksHero');
-            const animatedBlocks = root.querySelectorAll('.arcabooks-feature,.arcabooks-device-stage');
+            const animatedBlocks = root.querySelectorAll('.arcabooks-feature,.arcabooks-device-stage,.arcabooks-functions');
             function updatePageNav() { if (!pageNav || !hero) return; pageNav.classList.toggle('is-light', hero.getBoundingClientRect().bottom <= 76) }
             const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible') }), { threshold: .18, rootMargin: '0px 0px -8% 0px' });
             animatedBlocks.forEach(block => observer.observe(block));
@@ -6631,10 +7247,120 @@
         (function () { const root = document.getElementById('arcabooksPage'); if (!root) return; const menu = document.getElementById('arcabooksMobileMenu'), close = document.getElementById('arcabooksMobileClose'), overlay = document.getElementById('arcabooksMobileOverlay'), drawer = document.getElementById('arcabooksMobileDrawer'); if (!menu || !close || !overlay || !drawer) return; function openMenu() { root.classList.add('mobile-menu-open'); menu.setAttribute('aria-expanded', 'true'); drawer.setAttribute('aria-hidden', 'false') } function closeMenu() { root.classList.remove('mobile-menu-open'); menu.setAttribute('aria-expanded', 'false'); drawer.setAttribute('aria-hidden', 'true') } menu.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu); drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu)); window.addEventListener('resize', () => { if (innerWidth > 800) closeMenu() }) })();
 
 
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const accessibilitySection = document.querySelector(
+                "#arcabooksPage .arca-accessibility-section"
+            );
+
+            const accessibilityGlow = document.querySelector(
+                "#arcabooksPage .arca-accessibility-glow"
+            );
+
+            if (!accessibilitySection || !accessibilityGlow) return;
+
+
+            /* =====================================================
+               CONFIGURAÇÃO INICIAL
+            ===================================================== */
+
+            accessibilityGlow.style.animation = "none";
+
+            accessibilityGlow.style.transform =
+                "translate(-50%, -50%) scale(.35)";
+
+            accessibilityGlow.style.filter = "blur(85px)";
+
+            accessibilityGlow.style.opacity = "0";
+
+
+            /* =====================================================
+               ENTRADA E SAÍDA DA ÁREA
+            ===================================================== */
+
+            let accessibilityGlowTimer = null;
+
+            const accessibilityObserver = new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            /* ==============================
+                               ENTROU NA ÁREA
+                               Aguarda 2s antes de iniciar o brilho.
+                            ============================== */
+
+                            if (accessibilityGlowTimer) {
+                                clearTimeout(accessibilityGlowTimer);
+                            }
+
+                            accessibilityGlowTimer = setTimeout(function () {
+
+                                /* Se ainda estiver na tela, inicia o efeito. */
+                                const rect = accessibilitySection.getBoundingClientRect();
+                                const stillVisible =
+                                    rect.top < window.innerHeight &&
+                                    rect.bottom > 0;
+
+                                if (!stillVisible) return;
+
+                                accessibilityGlow.style.animation = "none";
+                                void accessibilityGlow.offsetWidth;
+                                accessibilityGlow.style.opacity = "1";
+                                accessibilityGlow.style.animation =
+                                    "arcaAccessibilityGlow 5.5s cubic-bezier(.22, 1, .36, 1) forwards";
+
+                            }, 2000);
+
+                        } else {
+
+                            /* ==============================
+                               SAIU DA ÁREA
+                            ============================== */
+
+                            if (accessibilityGlowTimer) {
+                                clearTimeout(accessibilityGlowTimer);
+                                accessibilityGlowTimer = null;
+                            }
+
+                            accessibilityGlow.style.animation = "none";
+
+                            void accessibilityGlow.offsetWidth;
+
+                            accessibilityGlow.style.transition =
+                                "transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s ease, opacity 1.2s ease";
+
+                            accessibilityGlow.style.transform =
+                                "translate(-50%, -50%) scale(.35)";
+
+                            accessibilityGlow.style.filter =
+                                "blur(85px)";
+
+                            accessibilityGlow.style.opacity = "0";
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.25
+                }
+            );
+
+
+            accessibilityObserver.observe(accessibilitySection);
+
+        });
 
     </script>
 
-        <script>
+
+
+
+    <script>
         /* =========================================================
    ARCA BOOKS
    02 — MENU DE LEITURA
@@ -6665,30 +7391,7 @@
                     z-index: 20;
                 }
 
-                @media (max-width: 1080px) {
-                    #arcabooksPage .arca-slides-viewport {
-                        overflow-x: auto !important;
-                        overflow-y: hidden !important;
-                        -webkit-overflow-scrolling: touch;
-                        scrollbar-width: none;
-                    }
-                    #arcabooksPage .arca-slides-viewport::-webkit-scrollbar {
-                        display: none;
-                    }
-                    #arcabooksPage .arca-reading-slides {
-                        overflow: hidden !important;
-                        touch-action: pan-y;
-                    }
-                    #arcabooksPage .arca-reading-slides-track {
-                        overflow: visible !important;
-                        touch-action: pan-y;
-                    }
-                    #arcabooksPage .arca-reading-slide {
-                        flex: 0 0 calc(100vw - 40px) !important;
-                        width: calc(100vw - 40px) !important;
-                        max-width: none !important;
-                    }
-                }
+                
             `;
             document.head.appendChild(arcaControlStyle);
 
@@ -6755,7 +7458,38 @@
 
             const THEME_TOTAL = 5000;
 
-            const SLIDE_TIME = 5000;
+            const SLIDE_TIME = 2000;
+
+            let progressAnimation = null;
+
+            function animateProgress() {
+                if (!progressRange) return;
+
+                cancelAnimationFrame(progressAnimation);
+
+                const start = performance.now();
+
+                function updateProgress(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min((elapsed / SLIDE_TIME) * 100, 100);
+
+                    progressRange.value = progress;
+                    progressRange.style.setProperty(
+                        "--arca-progress",
+                        progress + "%"
+                    );
+
+                    if (progressValue) {
+                        progressValue.textContent = Math.round(progress) + "%";
+                    }
+
+                    if (progress < 100) {
+                        progressAnimation = requestAnimationFrame(updateProgress);
+                    }
+                }
+
+                progressAnimation = requestAnimationFrame(updateProgress);
+            }
 
 
             let started = false;
@@ -6763,6 +7497,7 @@
             let currentTheme = 0;
 
             let currentSlide = 0;
+            animateProgress();
 
             let themeInterval = null;
 
@@ -7457,6 +8192,140 @@
             );
 
         });
+    </script>
+
+    <script>
+        (function () {
+
+            const floating = document.querySelector(
+                "#arcabooksPage .arca-floating-demo-new"
+            );
+
+            if (!floating) return;
+
+            const trigger = floating.querySelector(
+                ".arca-floating-demo-trigger"
+            );
+
+            const close = floating.querySelector(
+                ".arca-floating-demo-close"
+            );
+
+
+            /* =====================================================
+               ABRIR
+               ===================================================== */
+
+            function openFloating() {
+
+                floating.classList.add("is-open");
+
+                trigger.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+            }
+
+
+            /* =====================================================
+               FECHAR
+               ===================================================== */
+
+            function closeFloating() {
+
+                floating.classList.remove("is-open");
+
+                trigger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+
+
+            /* =====================================================
+               CLIQUE MANUAL NO +
+               ===================================================== */
+
+            trigger.addEventListener("click", function () {
+
+                if (floating.classList.contains("is-open")) {
+
+                    closeFloating();
+
+                } else {
+
+                    openFloating();
+
+                }
+
+            });
+
+
+            /* =====================================================
+               CLIQUE MANUAL NO X
+               ===================================================== */
+
+            close.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+                closeFloating();
+
+            });
+
+
+            /* =====================================================
+               ABRIR / FECHAR PELO SCROLL
+               ===================================================== */
+
+            const observer = new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            /*
+                             * Entrou na tela:
+                             * abre
+                             */
+
+                            openFloating();
+
+                        } else {
+
+                            /*
+                             * Saiu da tela:
+                             * fecha
+                             */
+
+                            closeFloating();
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    /*
+                     * Só considera "entrou"
+                     * quando uma parte razoável
+                     * do elemento estiver visível.
+                     */
+
+                    threshold: 0.45
+                }
+
+            );
+
+
+            observer.observe(floating);
+
+
+        })();
+
     </script>
 
 
