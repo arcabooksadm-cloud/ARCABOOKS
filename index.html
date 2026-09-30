@@ -320,7 +320,7 @@
             font-size: clamp(32px, 6vw, 72px);
             line-height: .95;
             letter-spacing: -3px;
-            margin-top: 0;
+            margin-top: 50px;
             margin-bottom: 14px
         }
 
@@ -4332,14 +4332,14 @@
        ===================================================== */
 
             .arcabooks-final-text {
-                bottom: 2.5vh;
+                bottom: 3vh;
                 width: min(94%, 650px);
             }
 
             .arcabooks-final-text h1 {
                 color: #fbf8f8;
-                margin-top: 0;
-                margin-bottom: 8px;
+                margin-top: -250px;
+                margin-bottom: 5px;
                 font-size: clamp(38px, 9vw, 72px);
                 letter-spacing: -2.5px;
                 line-height: .92;
@@ -4347,7 +4347,7 @@
 
             .arcabooks-final-text p {
                 margin-top: 0;
-                margin-bottom: 0;
+                margin-bottom: -20px;
                 font-size: clamp(14px, 3.8vw, 18px);
                 color: #ffffffc7;
                 line-height: 1.4;
@@ -6199,8 +6199,7 @@
                 const phoneProgress = clamp((progress - phoneStart) / (phoneEnd - phoneStart), 0, 1);
                 const phoneEase = easeInOutCubic(phoneProgress);
 
-                const finalPhoneLift = window.innerWidth <= 1080 ? -18 : -8;
-                const phoneY = lerp(115, finalPhoneLift, phoneEase);
+                const phoneY = lerp(115, 0, phoneEase);
                 const phoneScale = lerp(0.90, 1, phoneEase);
                 const phoneRotation = lerp(-5, 0, phoneEase);
 
@@ -6213,12 +6212,6 @@
                 ================================================= */
 
                 const target = getAppTarget();
-
-                /* O alvo da logo acompanha exatamente o celular.
-                   Assim, ao subir o celular para abrir espaço ao texto,
-                   a logo continua encaixada no mesmo app da Biblioteca. */
-                target.y += phoneY * window.innerHeight / 100;
-
                 const baseLogoWidth = Math.max(1, logo.offsetWidth);
                 const logoTop = parseFloat(getComputedStyle(logo).top) || 0;
 
@@ -6353,14 +6346,12 @@
 
                 finalText.style.opacity = textEase;
                 finalText.style.color = `rgb(${gray}, ${gray}, ${gray})`;
-                finalText.style.transform = `translateX(-50%) translateY(${lerp(30, 0, textEase)}px)`;
+                finalText.style.transform = `translateX(-50%) translateY(${lerp(35, 0, textEase) - -30}px)`;
 
                 /*
                  * GRADIENTE DE "PROPÓSITO"
-                 *
+                 * Começa somente quando o texto final entra na tela.
                  * Não inicia no carregamento da página.
-                 * A animação só é disparada quando o texto final
-                 * realmente começa a aparecer no progresso do hero.
                  */
                 const propositoGradient =
                     finalText.querySelector(".gradiente-texto");
@@ -7487,13 +7478,8 @@
              * Para adicionar mais palavras no futuro, basta duplicar
              * qualquer classe gradiente-texto/gradiente-textob/gradiente-textoa.
              */
-            /*
-             * O gradiente de "Propósito" é controlado separadamente
-             * pela animação do hero. Ele NÃO deve ser observado aqui,
-             * porque o elemento já existe dentro do hero desde o carregamento.
-             */
             const gradientWords = root.querySelectorAll(
-                '.gradiente-textob, .gradiente-textoa'
+                '[class*="gradiente-texto"]'
             );
 
             if ("IntersectionObserver" in window) {
