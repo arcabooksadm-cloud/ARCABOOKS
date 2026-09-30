@@ -394,13 +394,13 @@
             }
         }
 
-        .gradiente-textoa {
+        .gradiente-textod {
             background: linear-gradient(110deg,
                     #ffffff 0%,
-                    #ffffff 35%,
-                    #000000 50%,
-                    #000000 65%,
-                    #343333 100%);
+                    #8bb9ff 35%,
+                    #005ce6 50%,
+                    #c60c30 65%,
+                    #ffffff 100%);
 
             background-size: 300% 100%;
             background-position: 200% 50%;
@@ -409,7 +409,11 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
 
-            animation: brilhoTexto 15s ease-in-out 1 forwards;
+            animation: none;
+        }
+
+        .gradiente-textod.is-gradient-visible {
+            animation: brilhoTexto 9s ease-in-out 1 forwards;
         }
 
         @keyframes brilhoTexto {
@@ -421,7 +425,6 @@
                 background-position: -100% 50%;
             }
         }
-
 
 
 
@@ -614,16 +617,16 @@
         }
 
         /* O conteúdo seguinte permanece acima da extensão visual do HERO. */
-        #arcabooksPage > .arcabooks-final-text-section,
-        #arcabooksPage > .arcabooks-statement,
-        #arcabooksPage > .arca-slides-section,
-        #arcabooksPage > #arcabooksFuncoes,
-        #arcabooksPage > section:not(.arcabooks-hero) {
+        #arcabooksPage>.arcabooks-final-text-section,
+        #arcabooksPage>.arcabooks-statement,
+        #arcabooksPage>.arca-slides-section,
+        #arcabooksPage>#arcabooksFuncoes,
+        #arcabooksPage>section:not(.arcabooks-hero) {
             position: relative;
             z-index: 10;
         }
 
-        #arcabooksPage > #arcabooksFuncoes {
+        #arcabooksPage>#arcabooksFuncoes {
             background: #1d1d1d;
         }
 
@@ -4311,6 +4314,16 @@
                 height: 270vh;
             }
 
+            /* No mobile, o HERO permanece com a estrutura original. */
+            .arcabooks-hero-sticky {
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .arcabooks-white-transition {
+                height: 100%;
+            }
+
             .arcabooks-light {
                 width: 500px;
                 height: 450px;
@@ -6099,7 +6112,7 @@
         <section class="arcabooks-functions">
             <div class="arcabooks-section-heading" style="width:100%;padding-top:0">
                 <div class="arcabooks-eyebrow">MAIS RECURSOS</div>
-                <h2>Pequenos detalhes que fazem diferença.</h2>
+                <h2>Pequenos detalhes que fazem <span class="gradiente-textod"> diferença. </span></h2>
             </div>
             <div class="arcabooks-function-grid">
                 <article class="arcabooks-function-card">
