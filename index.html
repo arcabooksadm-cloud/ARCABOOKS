@@ -4252,8 +4252,6 @@
 
 
 
-
-
         /* =========================================================
    RESPONSIVO
    ========================================================= */
@@ -4334,25 +4332,48 @@
        ===================================================== */
 
             .arcabooks-final-text {
-                bottom: 3vh;
+                bottom: 2vh;
                 width: min(94%, 650px);
             }
 
             .arcabooks-final-text h1 {
                 color: #fbf8f8;
-                margin-top: -250px;
-                margin-bottom: 5px;
-                font-size: clamp(38px, 9vw, 72px);
-                letter-spacing: -2.5px;
-                line-height: .92;
+                margin-top: 0;
+                margin-bottom: 8px;
+                font-size: clamp(30px, 8vw, 62px);
+                letter-spacing: -2.2px;
+                line-height: .94;
             }
 
             .arcabooks-final-text p {
                 margin-top: 0;
-                margin-bottom: -20px;
-                font-size: clamp(14px, 3.8vw, 18px);
+                margin-bottom: 0;
+                font-size: clamp(13px, 3.5vw, 18px);
                 color: #ffffffc7;
                 line-height: 1.4;
+            }
+
+            /* =====================================================
+               TELAS MOBILE COM POUCA ALTURA
+               Mantém o celular exatamente na posição original.
+               Apenas compacta o bloco de texto final.
+               ===================================================== */
+
+            @media (max-width: 1080px) and (max-height: 750px) {
+
+                .arcabooks-final-text {
+                    bottom: -1vh;
+                }
+
+                .arcabooks-final-text h1 {
+                    font-size: clamp(27px, 7vw, 48px);
+                    line-height: .94;
+                    margin-bottom: 5px;
+                }
+
+                .arcabooks-final-text p {
+                    font-size: clamp(12px, 3vw, 15px);
+                }
             }
 
             #arcabooksPage .arcabooks-end-download {
@@ -5269,6 +5290,8 @@
             object-fit: contain;
         }
     </style>
+
+
     <style id="arca-mobile-temas-sequencial">
         /* =========================================================
    MENU DE LEITURA — MOBILE
@@ -5278,56 +5301,6 @@
    Sépia | Contraste
    ========================================================= */
     </style>
-
-    <style>
-    /* Espaço extra no final do hero: o texto fica aqui, ABAIXO do celular */
-    #arcabooksPage .arcabooks-hero {
-        --final-space: 210px;
-        height: calc(320vh + var(--final-space)) !important;
-        padding-bottom: var(--final-space) !important;
-        background: linear-gradient(to bottom,
-            #050505 calc(100% - var(--final-space)),
-            #c60c30 calc(100% - var(--final-space))) !important;
-    }
-
-    #arcabooksPage .arcabooks-final-text {
-        position: absolute !important;
-        top: auto !important;
-        bottom: 30px !important;
-        left: 50% !important;
-        width: min(900px, 92%) !important;
-    }
-
-    #arcabooksPage .arcabooks-final-text h1 {
-        margin: 0 0 12px 0 !important;
-        font-size: clamp(30px, 5.2vw, 64px) !important;
-        letter-spacing: -2px !important;
-    }
-
-    #arcabooksPage .arcabooks-final-text p {
-        margin: 0 !important;
-    }
-
-    @media (max-width: 1080px) {
-        #arcabooksPage .arcabooks-hero {
-            --final-space: 260px;
-            height: calc(270vh + var(--final-space)) !important;
-        }
-
-        #arcabooksPage .arcabooks-final-text {
-            top: 5px;
-            bottom: 40px !important;
-            width: min(94%, 650px) !important;
-        }
-
-        #arcabooksPage .arcabooks-final-text h1 {
-            margin: 0 0 8px 0 !important; /* anula o -250px antigo */
-            font-size: clamp(30px, 9vw, 56px) !important;
-            letter-spacing: -1.5px !important;
-        }
-    }
-</style>
-
 
 </head>
 
@@ -5494,11 +5467,11 @@
                 <div class="arcabooks-logo-transition" id="arcabooksLogoTransition">
                     <img src="https://github.com/user-attachments/assets/6491b76c-fcf4-4253-96aa-83b19933a842" alt="">
                 </div>
-            </div>
 
-            <div class="arcabooks-final-text" id="arcabooksFinalText">
-                <h1>Leitura&<span class="gradiente-texto">Propósito</span><br>na palma da mão.</h1>
-                <p>Tenha acesso aos livros da Arca Center onde estiver.</p>
+                <div class="arcabooks-final-text" id="arcabooksFinalText">
+                    <h1>Leitura&<span class="gradiente-texto">Propósito</span><br>na palma da mão.</h1>
+                    <p>Tenha acesso aos livros da Arca Center onde estiver.</p>
+                </div>
             </div>
         </section>
 
@@ -6222,8 +6195,8 @@
             function updateAnimation() {
 
                 const heroRect = hero.getBoundingClientRect();
-                const finalSpace = parseFloat(getComputedStyle(hero).paddingBottom) || 0;
-                const maxScroll = hero.offsetHeight - finalSpace - window.innerHeight;
+                const maxScroll = hero.offsetHeight - window.innerHeight;
+
                 let progress = clamp(-heroRect.top / maxScroll, 0, 1);
 
                 /* ABERTURA — TRÊS CELULARES */
