@@ -6349,6 +6349,28 @@
                 finalText.style.opacity = textEase;
                 finalText.style.color = `rgb(${gray}, ${gray}, ${gray})`;
                 finalText.style.transform = `translateX(-50%) translateY(${lerp(35, 0, textEase) - -30}px)`;
+
+                /*
+                 * GRADIENTE DE "PROPÓSITO"
+                 *
+                 * Não inicia no carregamento da página.
+                 * A animação só é disparada quando o texto final
+                 * realmente começa a aparecer no progresso do hero.
+                 */
+                const propositoGradient =
+                    finalText.querySelector(".gradiente-texto");
+
+                if (
+                    propositoGradient &&
+                    textProgress > 0 &&
+                    propositoGradient.dataset.gradientStarted !== "1"
+                ) {
+                    propositoGradient.dataset.gradientStarted = "1";
+                    propositoGradient.classList.remove("is-gradient-visible");
+                    void propositoGradient.offsetWidth;
+                    propositoGradient.classList.add("is-gradient-visible");
+                }
+
                 ticking = false;
             }
 
@@ -7460,8 +7482,13 @@
              * Para adicionar mais palavras no futuro, basta duplicar
              * qualquer classe gradiente-texto/gradiente-textob/gradiente-textoa.
              */
+            /*
+             * O gradiente de "Propósito" é controlado separadamente
+             * pela animação do hero. Ele NÃO deve ser observado aqui,
+             * porque o elemento já existe dentro do hero desde o carregamento.
+             */
             const gradientWords = root.querySelectorAll(
-                '[class*="gradiente-texto"]'
+                '.gradiente-textob, .gradiente-textoa'
             );
 
             if ("IntersectionObserver" in window) {
