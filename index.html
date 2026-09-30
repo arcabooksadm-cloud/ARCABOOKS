@@ -29,7 +29,7 @@
         .arcabooks-hero {
             position: relative;
             width: 100%;
-            height: 320vh;
+            height: 300vh;
             background: #050505
         }
 
@@ -37,11 +37,11 @@
             position: sticky;
             top: 0;
             width: 100%;
-            height: 100vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow: visible;
             perspective: 1500px;
             perspective-origin: 50% 50%;
             background: #050505
@@ -283,6 +283,8 @@
         .arcabooks-white-transition {
             position: absolute;
             inset: 0;
+            width: 100%;
+            height: 100vh;
             background: #fcfcfc;
             opacity: 0;
             z-index: 5;
@@ -438,7 +440,7 @@
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
-            background: #000;
+            background: #c60c30;
             overflow: hidden;
         }
 
@@ -609,6 +611,20 @@
             z-index: 12;
             visibility: hidden;
             opacity: 200
+        }
+
+        /* O conteúdo seguinte permanece acima da extensão visual do HERO. */
+        #arcabooksPage > .arcabooks-final-text-section,
+        #arcabooksPage > .arcabooks-statement,
+        #arcabooksPage > .arca-slides-section,
+        #arcabooksPage > #arcabooksFuncoes,
+        #arcabooksPage > section:not(.arcabooks-hero) {
+            position: relative;
+            z-index: 10;
+        }
+
+        #arcabooksPage > #arcabooksFuncoes {
+            background: #1d1d1d;
         }
 
         /* NAVEGAÇÃO E CONTEÚDO */
@@ -905,8 +921,7 @@
             padding: 42px clamp(40px, 5vw, 80px) 0;
             overflow: hidden;
             background: #f7f7f7;
-            perspective: 1500px;
-            margin-bottom: -120px
+            perspective: 1500px
         }
 
         #arcabooksPage .arcabooks-device-stage--left,
@@ -1214,7 +1229,7 @@
             place-items: center;
             padding: 8vh 7vw;
             text-align: center;
-            background: #050505;
+            background: #1b1a1b;
             color: #fff
         }
 
@@ -8872,4 +8887,3 @@
 </body>
 
 </html>
-        
