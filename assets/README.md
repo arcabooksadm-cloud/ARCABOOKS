@@ -11,7 +11,8 @@
 <img width="1500" height="1000" alt="s1d" src="https://github.com/user-attachments/assets/7effe30b-b60c-436a-8ddb-3508e010523f" />
 <img width="1500" height="1000" alt="perso" src="https://github.com/user-attachments/assets/c062ed34-219c-4c1f-b5cd-f3a3c86dc0a8" />
 <img width="1500" height="1000" alt="barra" src="https://github.com/user-attachments/assets/794e80f0-db19-43a2-9279-b3e7c141b7d1" />
-<img width="1000" height="1139" alt="acessi" src="https://github.com/user-attachments/assets/3eca1191-525d-43fd-bebe-9c05809e94bf" />
 <img width="1080" height="1350" alt="red" src="https://github.com/user-attachments/assets/9f5e199e-08b2-48f0-89a9-7a102e851ef1" />
+<img width="1000" height="1279" alt="acessi" src="https://github.com/user-attachments/assets/f41f48d6-d0a0-4b38-b6d4-e182b9d12f43" />
+
 
 # LPARCABOOKS
