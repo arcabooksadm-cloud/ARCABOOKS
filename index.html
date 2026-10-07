@@ -7967,6 +7967,11 @@
 
             let slideInterval = null;
 
+            let themeStartTimer = null;
+            let themeFinishTimer = null;
+            let slideStartTimer = null;
+            let themeSafetyTimer = null;
+
 
             /* =====================================================
                ENTRADA DA SECTION
@@ -7977,28 +7982,61 @@
 
                     entries.forEach(function (entry) {
 
-                        if (
-                            entry.isIntersecting &&
-                            !started
-                        ) {
+                        if (entry.isIntersecting) {
 
-                            started = true;
+                            if (!started) {
 
-                            section.classList.add(
-                                "is-visible"
-                            );
+                                started = true;
+
+                                section.classList.add(
+                                    "is-visible"
+                                );
 
 
-                            /*
-                             * Espera o texto aparecer
-                             * antes de começar as bolhas.
-                             */
+                                /*
+                                 * Espera o texto aparecer
+                                 * antes de começar as bolhas.
+                                 */
 
-                            setTimeout(function () {
+                                themeStartTimer = setTimeout(function () {
 
-                                startThemeAnimation();
+                                    startThemeAnimation();
 
-                            }, 900);
+                                }, 900);
+
+                            }
+
+                        } else {
+
+                            started = false;
+
+                            if (themeStartTimer) clearTimeout(themeStartTimer);
+                            if (themeFinishTimer) clearTimeout(themeFinishTimer);
+                            if (slideStartTimer) clearTimeout(slideStartTimer);
+                            if (themeSafetyTimer) clearTimeout(themeSafetyTimer);
+
+                            themeStartTimer = null;
+                            themeFinishTimer = null;
+                            slideStartTimer = null;
+                            themeSafetyTimer = null;
+
+                            if (themeInterval) {
+                                clearInterval(themeInterval);
+                                themeInterval = null;
+                            }
+
+                            section.classList.remove("is-visible");
+                            section.classList.remove("is-expanded");
+                            section.classList.remove("is-dark-theme");
+                            section.style.background = "#fcfcfc";
+
+                            themeBubbles.forEach(function (bubble) {
+                                bubble.classList.remove("is-active");
+                                bubble.classList.remove("is-finished");
+                                bubble.style.removeProperty("color");
+                            });
+
+                            currentTheme = 0;
 
                         }
 
@@ -8167,7 +8205,7 @@
                  * a animação presa.
                  */
 
-                setTimeout(
+                themeSafetyTimer = setTimeout(
                     function () {
 
                         if (themeInterval) {
@@ -8202,7 +8240,7 @@
                  * momento antes da expansão.
                  */
 
-                setTimeout(
+                themeFinishTimer = setTimeout(
                     function () {
 
                         /*
@@ -8231,7 +8269,7 @@
                          * começar antes dos slides.
                          */
 
-                        setTimeout(
+                        slideStartTimer = setTimeout(
                             function () {
 
                                 startSlides();
