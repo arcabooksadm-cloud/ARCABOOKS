@@ -2846,7 +2846,7 @@
             transform:
                 translateY(70px) scale(.97);
 
-            pointer-events: none;
+            pointer-events: auto;
 
             transition:
                 opacity 1s cubic-bezier(.22, 1, .36, 1),
@@ -3031,6 +3031,22 @@
             background: #c60c30;
         }
 
+
+        /* Mantém os controles acima do conteúdo da seção de temas,
+           inclusive enquanto a expansão e as animações acontecem. */
+        #arcabooksPage .arca-reading-controls {
+            position: relative;
+            z-index: 30;
+            pointer-events: auto;
+        }
+
+        #arcabooksPage .arca-reading-controls-inner,
+        #arcabooksPage .arca-text-control,
+        #arcabooksPage .arca-text-slider,
+        #arcabooksPage .arca-text-range,
+        #arcabooksPage #arcaTextRange {
+            pointer-events: auto;
+        }
 
         /* =========================================================
    CONTROLES DE LEITURA
@@ -3248,7 +3264,7 @@
             display: block;
 
             width: 100%;
-            height: 4px;
+            height: 20px;
 
             margin: 0;
             padding: 0;
@@ -3260,9 +3276,10 @@
 
             border-radius: 10px;
 
-            background: #eadfe0;
+            background: transparent;
 
             cursor: pointer;
+            touch-action: none;
         }
 
         #arcabooksPage #arcaTextRange::-webkit-slider-runnable-track {
@@ -6025,6 +6042,7 @@
                                 <div class="arca-text-range">
 
                                     <input type="range" id="arcaTextRange" min="14" max="26" value="18" step="1"
+                                        oninput="document.getElementById('arcaReadingQuote').style.setProperty('font-size', this.value + 'px', 'important'); document.getElementById('arcaTextValue').textContent = this.value + ' pt';"
                                         aria-label="Tamanho do texto">
 
                                 </div>
@@ -6579,7 +6597,7 @@
 
                 text.dataset.typewriterReady = "1";
 
-                var phrase = "Simples. Prático. arcabooks.";
+                var phrase = "Simples. Prático. Arcabooks.";
                 var position = 0;
                 var deleting = false;
 
@@ -9040,6 +9058,28 @@
 
         });
 
+    </script>
+
+
+    <script>
+        // Controle independente do tamanho da frase abaixo da barra de progresso.
+        (function () {
+            const slider = document.getElementById('arcaTextRange');
+            const frase = document.getElementById('arcaReadingQuote');
+            const indicador = document.getElementById('arcaTextValue');
+            if (!slider || !frase) return;
+
+            function atualizarTamanho() {
+                const tamanho = Number(slider.value);
+                if (!Number.isFinite(tamanho)) return;
+                frase.style.setProperty('font-size', tamanho + 'px', 'important');
+                if (indicador) indicador.textContent = tamanho + ' pt';
+            }
+
+            slider.addEventListener('input', atualizarTamanho);
+            slider.addEventListener('change', atualizarTamanho);
+            atualizarTamanho();
+        })();
     </script>
 
 
